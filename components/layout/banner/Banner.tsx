@@ -106,23 +106,24 @@ const Banner = () => {
                     data-delay=".3s"
                     className="text-white mb-20"
                   >
-                    TECHNOLOGY RELETED CONSULTANCY
+                    CHARLIE UNICORN AI — SOFTWARE & DIGITAL PRODUCT STUDIO
                   </h4>
                   <h1
                     data-animation="fadeInUp"
                     data-delay=".5s"
                     className="text-white"
                   >
-                    We Convert Concepts Into Technology
+                    Empowering Innovation with Advanced Software & IT Solutions
                   </h1>
                   <p
                     data-animation="fadeInUp"
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    Consectetur adipiscing elit Aenean scelerisque at augue
-                    vitae consequat <br /> quisque eget congue velit in cursus
-                    leo Sed sodales
+                    We design and build scalable digital products—from
+                    responsive websites and native mobile apps <br /> to
+                    blockchain solutions and immersive games powered by Unreal
+                    Engine 5.
                   </p>
                   <Link
                     data-animation="fadeInUp"
@@ -130,7 +131,7 @@ const Banner = () => {
                     href="about"
                     className="btn-one mt-50"
                   >
-                    Explore More{" "}
+                    Discover Our Services{" "}
                     <i className="fa-regular fa-arrow-right-long"></i>
                   </Link>
                 </div>
@@ -205,31 +206,31 @@ const Banner = () => {
                     data-delay=".3s"
                     className="text-white mb-20"
                   >
-                    TECHNOLOGY RELETED CONSULTANCY
+                    END-TO-END IT SOLUTIONS FOR GROWING BUSINESSES
                   </h4>
                   <h1
                     data-animation="fadeInUp"
                     data-delay=".5s"
                     className="text-white"
                   >
-                    We Convert Concepts Into Technology
+                    Turn Your Ideas Into Production-Ready Software
                   </h1>
                   <p
                     data-animation="fadeInUp"
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    Consectetur adipiscing elit Aenean scelerisque at augue
-                    vitae consequat <br /> quisque eget congue velit in cursus
-                    leo Sed sodales
+                    Partner with a team that delivers secure, high-performance
+                    applications—on time, on budget, <br /> and aligned with
+                    your product roadmap and business goals.
                   </p>
                   <Link
                     data-animation="fadeInUp"
                     data-delay="1s"
-                    href="about"
+                    href="service"
                     className="btn-one mt-50"
                   >
-                    Explore More{" "}
+                    View Our Services{" "}
                     <i className="fa-regular fa-arrow-right-long"></i>
                   </Link>
                 </div>
@@ -304,31 +305,31 @@ const Banner = () => {
                     data-delay=".3s"
                     className="text-white mb-20"
                   >
-                    TECHNOLOGY RELETED CONSULTANCY
+                    GAME DEVELOPMENT · BLOCKCHAIN · MOBILE & WEB APPS
                   </h4>
                   <h1
                     data-animation="fadeInUp"
                     data-delay=".5s"
                     className="text-white"
                   >
-                    We Convert Concepts Into Technology
+                    Build the Future With Charlie Unicorn AI
                   </h1>
                   <p
                     data-animation="fadeInUp"
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    Consectetur adipiscing elit Aenean scelerisque at augue
-                    vitae consequat <br /> quisque eget congue velit in cursus
-                    leo Sed sodales
+                    From Unreal Engine 5 game experiences to smart contracts and
+                    cross-platform apps, <br /> we help brands innovate with
+                    modern technology and expert engineering.
                   </p>
                   <Link
                     data-animation="fadeInUp"
                     data-delay="1s"
-                    href="about"
+                    href="contact"
                     className="btn-one mt-50"
                   >
-                    Explore More{" "}
+                    Get a Free Consultation{" "}
                     <i className="fa-regular fa-arrow-right-long"></i>
                   </Link>
                 </div>
