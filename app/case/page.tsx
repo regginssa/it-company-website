@@ -9,7 +9,7 @@ const page = () => {
   return (
     <div>
       <Header />
-      <CmnBanner title="Case Study" />
+      <CmnBanner title="Our Portfolio" />
       <CaseItems />
       <Footer />
       <CustomCursor />

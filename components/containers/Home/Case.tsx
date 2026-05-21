@@ -1,14 +1,11 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import One from "@/public/images/bg/case-two-bg.png";
-import Two from "@/public/images/case/case-two-image1.jpg";
-import Three from "@/public/images/case/case-two-image2.jpg";
-import Four from "@/public/images/case/case-two-image3.jpg";
-import Five from "@/public/images/case/case-two-image4.jpg";
+import CaseCard from "@/components/containers/case/CaseCard";
+import { portfolioCases } from "@/data/portfolioCases";
 
 const Case = () => {
   return (
@@ -50,7 +47,7 @@ const Case = () => {
                   mask="url(#path-2-inside-1_1120_297)"
                 />
               </svg>
-              FROM OUR CASE studies
+              OUR PORTFOLIO
             </h5>
             <h2
               className="text-white "
@@ -58,7 +55,7 @@ const Case = () => {
               data-aos-delay="200"
               data-aos-duration="1500"
             >
-              We Delivered Best Solution
+              Products Built by Charlie Unicorn AI
             </h2>
           </div>
           <div
@@ -108,166 +105,13 @@ const Case = () => {
               },
             }}
           >
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="case-two__item">
-                  <div className="image case-two__image">
-                    <Image src={Two} alt="Image" priority />
-                  </div>
-                  <div className="case-two__content">
-                    <span>Solution</span>
-                    <h4>
-                      <Link href="case-details" className="text-white">
-                        IT Management
-                      </Link>
-                    </h4>
-                  </div>
-                  <Link href="case-details" className="case-two__btn">
-                    <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
+            {portfolioCases.map((project) => (
+              <SwiperSlide key={project.slug}>
+                <div className="swiper-slide">
+                  <CaseCard project={project} />
                 </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="case-two__item">
-                  <div className="image case-two__image">
-                    <Image src={Three} alt="Image" priority />
-                  </div>
-                  <div className="case-two__content">
-                    <span>Technology</span>
-                    <h4>
-                      <Link href="case-details" className="text-white">
-                        Web Development
-                      </Link>
-                    </h4>
-                  </div>
-                  <Link href="case-details" className="case-two__btn">
-                    <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="case-two__item">
-                  <div className="image case-two__image">
-                    <Image src={Four} alt="Image" priority />
-                  </div>
-                  <div className="case-two__content">
-                    <span>Security</span>
-                    <h4>
-                      <Link href="case-details" className="text-white">
-                        Network Security
-                      </Link>
-                    </h4>
-                  </div>
-                  <Link href="case-details" className="case-two__btn">
-                    <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="case-two__item">
-                  <div className="image case-two__image">
-                    <Image src={Five} alt="Image" priority />
-                  </div>
-                  <div className="case-two__content">
-                    <span>Technology</span>
-                    <h4>
-                      <Link href="case-details" className="text-white">
-                        Platform Integration
-                      </Link>
-                    </h4>
-                  </div>
-                  <Link href="case-details" className="case-two__btn">
-                    <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="case-two__item">
-                  <div className="image case-two__image">
-                    <Image src={Two} alt="Image" priority />
-                  </div>
-                  <div className="case-two__content">
-                    <span>Solution</span>
-                    <h4>
-                      <Link href="case-details" className="text-white">
-                        IT Management
-                      </Link>
-                    </h4>
-                  </div>
-                  <Link href="case-details" className="case-two__btn">
-                    <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="case-two__item">
-                  <div className="image case-two__image">
-                    <Image src={Three} alt="Image" priority />
-                  </div>
-                  <div className="case-two__content">
-                    <span>Technology</span>
-                    <h4>
-                      <Link href="case-details" className="text-white">
-                        Web Development
-                      </Link>
-                    </h4>
-                  </div>
-                  <Link href="case-details" className="case-two__btn">
-                    <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="case-two__item">
-                  <div className="image case-two__image">
-                    <Image src={Four} alt="Image" priority />
-                  </div>
-                  <div className="case-two__content">
-                    <span>Security</span>
-                    <h4>
-                      <Link href="case-details" className="text-white">
-                        Network Security
-                      </Link>
-                    </h4>
-                  </div>
-                  <Link href="case-details" className="case-two__btn">
-                    <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="case-two__item">
-                  <div className="image case-two__image">
-                    <Image src={Five} alt="Image" priority />
-                  </div>
-                  <div className="case-two__content">
-                    <span>Technology</span>
-                    <h4>
-                      <Link href="case-details" className="text-white">
-                        Platform Integration
-                      </Link>
-                    </h4>
-                  </div>
-                  <Link href="case-details" className="case-two__btn">
-                    <i className="fa-regular fa-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

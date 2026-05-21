@@ -75,7 +75,7 @@ const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: any) => {
                   <Link href="case">Case Study</Link>
                 </li>
                 <li>
-                  <Link href="case-details">Case Study Details</Link>
+                  <Link href="case">Our Portfolio</Link>
                 </li>
                 <li>
                   <Link href="team">Our Team</Link>

@@ -3,9 +3,33 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import One from "@/public/images/testimonial/testimonial-two-image1.png";
-import Two from "@/public/images/testimonial/testimonial-two-image2.png";
-import Three from "@/public/images/testimonial/testimonial-two-image3.png";
+import { testimonials } from "@/data/testimonials";
+
+const QuoteIcon = () => (
+  <svg
+    className="coma"
+    width="50"
+    height="37"
+    viewBox="0 0 50 37"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
+      fill="#3C72FC"
+    />
+  </svg>
+);
+
+const StarRating = () => (
+  <div className="star mb-10">
+    <i className="fa-sharp fa-solid fa-star"></i>
+    <i className="fa-sharp fa-solid fa-star"></i>
+    <i className="fa-sharp fa-solid fa-star"></i>
+    <i className="fa-sharp fa-solid fa-star"></i>
+    <i className="fa-sharp fa-solid fa-star"></i>
+  </div>
+);
 
 const Testimonial = () => {
   return (
@@ -44,7 +68,7 @@ const Testimonial = () => {
                 mask="url(#path-2-inside-1_869_295)"
               />
             </svg>
-            Testimonials
+            Client Feedback
           </h5>
           <h2
             data-aos="fade-up"
@@ -52,7 +76,7 @@ const Testimonial = () => {
             data-aos-delay="200"
             data-aos-duration="1500"
           >
-            What Our Client&apos;s Say About Us
+            Trusted Across Web, Mobile, Blockchain, AI & Games
           </h2>
         </div>
         <div className="swiper testimonial-two__slider">
@@ -79,234 +103,24 @@ const Testimonial = () => {
             }}
             className="swiper-wrapper"
           >
-            <SwiperSlide>
-              <div>
-                <div className="testimonial-two__item">
-                  <div className="star mb-10">
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star disable"></i>
-                  </div>
-                  <p className="mb-30">
-                    “ Consectetur adipiscing elit. Integer nunc viverra laoreet
-                    est the is porta pretium metus aliquam eget maecenas porta
-                    is nunc nul viverra Aenean pulvinar maximus leo ”
-                  </p>
-                  <div className="d-flex align-items-center gap-3">
-                    <Image src={One} alt="Image" priority />
-                    <div className="con">
-                      <h4>Alex Rony</h4>
-                      <span>Engineering</span>
+            {testimonials.map((item) => (
+              <SwiperSlide key={item.name}>
+                <div>
+                  <div className="testimonial-two__item">
+                    <StarRating />
+                    <p className="mb-30">&ldquo; {item.quote} &rdquo;</p>
+                    <div className="d-flex align-items-center gap-3">
+                      <Image src={item.image} alt={item.name} priority />
+                      <div className="con">
+                        <h4>{item.name}</h4>
+                        <span>{item.role}</span>
+                      </div>
                     </div>
+                    <QuoteIcon />
                   </div>
-                  <svg
-                    className="coma"
-                    width="50"
-                    height="37"
-                    viewBox="0 0 50 37"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
-                      fill="#3C72FC"
-                    />
-                  </svg>
                 </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <div className="testimonial-two__item">
-                  <div className="star mb-10">
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star disable"></i>
-                  </div>
-                  <p className="mb-30">
-                    “ Consectetur adipiscing elit. Integer nunc viverra laoreet
-                    est the is porta pretium metus aliquam eget maecenas porta
-                    is nunc nul viverra Aenean pulvinar maximus leo ”
-                  </p>
-                  <div className="d-flex align-items-center gap-3">
-                    <Image src={Two} alt="Image" priority />
-                    <div className="con">
-                      <h4>Suborna Tarchera</h4>
-                      <span>UI/UX Designer</span>
-                    </div>
-                  </div>
-                  <svg
-                    className="coma"
-                    width="50"
-                    height="37"
-                    viewBox="0 0 50 37"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
-                      fill="#3C72FC"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <div className="testimonial-two__item">
-                  <div className="star mb-10">
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star disable"></i>
-                  </div>
-                  <p className="mb-30">
-                    “ Consectetur adipiscing elit. Integer nunc viverra laoreet
-                    est the is porta pretium metus aliquam eget maecenas porta
-                    is nunc nul viverra Aenean pulvinar maximus leo ”
-                  </p>
-                  <div className="d-flex align-items-center gap-3">
-                    <Image src={Three} alt="Image" priority />
-                    <div className="con">
-                      <h4>Kawser Ahmed</h4>
-                      <span>Web Designer</span>
-                    </div>
-                  </div>
-                  <svg
-                    className="coma"
-                    width="50"
-                    height="37"
-                    viewBox="0 0 50 37"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
-                      fill="#3C72FC"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <div className="testimonial-two__item">
-                  <div className="star mb-10">
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star disable"></i>
-                  </div>
-                  <p className="mb-30">
-                    “ Consectetur adipiscing elit. Integer nunc viverra laoreet
-                    est the is porta pretium metus aliquam eget maecenas porta
-                    is nunc nul viverra Aenean pulvinar maximus leo ”
-                  </p>
-                  <div className="d-flex align-items-center gap-3">
-                    <Image src={One} alt="Image" priority />
-                    <div className="con">
-                      <h4>Alex Rony</h4>
-                      <span>Engineering</span>
-                    </div>
-                  </div>
-                  <svg
-                    className="coma"
-                    width="50"
-                    height="37"
-                    viewBox="0 0 50 37"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
-                      fill="#3C72FC"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <div className="testimonial-two__item">
-                  <div className="star mb-10">
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star disable"></i>
-                  </div>
-                  <p className="mb-30">
-                    “ Consectetur adipiscing elit. Integer nunc viverra laoreet
-                    est the is porta pretium metus aliquam eget maecenas porta
-                    is nunc nul viverra Aenean pulvinar maximus leo ”
-                  </p>
-                  <div className="d-flex align-items-center gap-3">
-                    <Image src={Two} alt="Image" priority />
-                    <div className="con">
-                      <h4>Suborna Tarchera</h4>
-                      <span>UI/UX Designer</span>
-                    </div>
-                  </div>
-                  <svg
-                    className="coma"
-                    width="50"
-                    height="37"
-                    viewBox="0 0 50 37"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
-                      fill="#3C72FC"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div>
-                <div className="testimonial-two__item">
-                  <div className="star mb-10">
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star"></i>
-                    <i className="fa-sharp fa-solid fa-star disable"></i>
-                  </div>
-                  <p className="mb-30">
-                    “ Consectetur adipiscing elit. Integer nunc viverra laoreet
-                    est the is porta pretium metus aliquam eget maecenas porta
-                    is nunc nul viverra Aenean pulvinar maximus leo ”
-                  </p>
-                  <div className="d-flex align-items-center gap-3">
-                    <Image src={Three} alt="Image" priority />
-                    <div className="con">
-                      <h4>Kawser Ahmed</h4>
-                      <span>Web Designer</span>
-                    </div>
-                  </div>
-                  <svg
-                    className="coma"
-                    width="50"
-                    height="37"
-                    viewBox="0 0 50 37"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0V37L18.75 18.5V0H0ZM31.25 0V37L50 18.5V0H31.25Z"
-                      fill="#3C72FC"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
         <div className="text-center mt-40">
