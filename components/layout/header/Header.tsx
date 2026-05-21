@@ -203,7 +203,7 @@ const Header = () => {
                 </div>
                 <div className="info">
                   <span className="sm-font fw-600 text-white">Call Us Now</span>
-                  <h5 className="text-white">+208-555-0112</h5>
+                  <h5 className="text-white">+48 504 412 991</h5>
                 </div>
               </div>
             </div>

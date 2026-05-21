@@ -50,18 +50,6 @@ const CaseSingle = ({ project }: CaseSingleProps) => {
           <h3 className="case-single__title mt-40 mb-30">Project Overview</h3>
           <p>{project.summary}</p>
         </div>
-        <div className="row g-4 mt-10">
-          <div className="col-md-6">
-            <div className="image">
-              <Image src={Two} alt="Project detail" priority />
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="image">
-              <Image src={Three} alt="Project detail" priority />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -34,14 +34,14 @@ export const portfolioCases: PortfolioCase[] = [
     ],
   },
   {
-    slug: "eventworld",
-    title: "EventWorld",
+    slug: "charlieparty",
+    title: "CharlieParty",
     category: "Web & Mobile",
     image: caseImage2,
     summary:
       "A fully functional app bridging real-world events with blockchain innovation—web, Android, and iOS.",
     description:
-      "EventWorld connects live events with Web3 and AI. The platform includes Web3 payments, AI-powered event discovery, digital ticketing, and one-click booking for airport, hotel, and transfer services based on the event location users select. One click handles the full journey—from discovery to travel arrangements.",
+      "CharlieParty is a fully functional app bridging real-world events with blockchain innovation—web, Android, and iOS.",
     platforms: "Web, Android, iOS",
     highlights: [
       "Web3 payments",
