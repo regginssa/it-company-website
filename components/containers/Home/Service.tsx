@@ -6,9 +6,13 @@ import "swiper/swiper-bundle.css";
 import One from "@/public/images/shape/service-two-shape-left.png";
 import Two from "@/public/images/shape/service-two-shape-right.png";
 import ServiceCard from "@/components/containers/service/ServiceCard";
-import { services } from "@/data/services";
+import { useI18n } from "@/contexts/I18nProvider";
+import { getLocalizedServices } from "@/lib/i18n/localized-data";
 
 const Service = () => {
+  const { locale, dict } = useI18n();
+  const services = getLocalizedServices(locale);
+
   return (
     <section
       className="service-two-area secondary-bg pt-120 pb-120"
@@ -54,7 +58,7 @@ const Service = () => {
                   mask="url(#path-2-inside-1_670_477)"
                 />
               </svg>
-              SERVICES WE&apos;RE OFFERING
+              {dict.home.services.eyebrow}
             </h5>
             <h2
               className="text-white "
@@ -62,7 +66,7 @@ const Service = () => {
               data-aos-delay="200"
               data-aos-duration="1500"
             >
-              Our Core Development Services
+              {dict.home.services.title}
             </h2>
           </div>
           <div

@@ -1,6 +1,7 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
+import LocalizedLink from "@/components/layout/LocalizedLink";
+import { useI18n } from "@/contexts/I18nProvider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
@@ -13,6 +14,10 @@ import Five from "@/public/images/banner/banner-two-circle-solid.png";
 import Six from "@/public/images/banner/banner-two-circle-regular.png";
 
 const Banner = () => {
+  const { dict } = useI18n();
+  const slides = dict.home.banner.slides;
+  const slideLinks = ["/about", "/service", "/contact"];
+
   return (
     <section className="banner-two-area">
       <div className="banner-two__line">
@@ -106,34 +111,31 @@ const Banner = () => {
                     data-delay=".3s"
                     className="text-white mb-20"
                   >
-                    CHARLIE UNICORN AI — SOFTWARE & DIGITAL PRODUCT STUDIO
+                    {slides[0].eyebrow}
                   </h4>
                   <h1
                     data-animation="fadeInUp"
                     data-delay=".5s"
                     className="text-white"
                   >
-                    Empowering Innovation with Advanced Software & IT Solutions
+                    {slides[0].title}
                   </h1>
                   <p
                     data-animation="fadeInUp"
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    We design and build scalable digital products—from
-                    responsive websites and native mobile apps <br /> to
-                    blockchain solutions and immersive games powered by Unreal
-                    Engine 5.
+                    {slides[0].description}
                   </p>
-                  <Link
+                  <LocalizedLink
                     data-animation="fadeInUp"
                     data-delay="1s"
-                    href="about"
+                    href={slideLinks[0]}
                     className="btn-one mt-50"
                   >
-                    Discover Our Services{" "}
+                    {slides[0].cta}{" "}
                     <i className="fa-regular fa-arrow-right-long"></i>
-                  </Link>
+                  </LocalizedLink>
                 </div>
               </div>
             </div>
@@ -206,33 +208,31 @@ const Banner = () => {
                     data-delay=".3s"
                     className="text-white mb-20"
                   >
-                    END-TO-END IT SOLUTIONS FOR GROWING BUSINESSES
+                    {slides[1].eyebrow}
                   </h4>
                   <h1
                     data-animation="fadeInUp"
                     data-delay=".5s"
                     className="text-white"
                   >
-                    Turn Your Ideas Into Production-Ready Software
+                    {slides[1].title}
                   </h1>
                   <p
                     data-animation="fadeInUp"
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    Partner with a team that delivers secure, high-performance
-                    applications—on time, on budget, <br /> and aligned with
-                    your product roadmap and business goals.
+                    {slides[1].description}
                   </p>
-                  <Link
+                  <LocalizedLink
                     data-animation="fadeInUp"
                     data-delay="1s"
-                    href="service"
+                    href={slideLinks[1]}
                     className="btn-one mt-50"
                   >
-                    View Our Services{" "}
+                    {slides[1].cta}{" "}
                     <i className="fa-regular fa-arrow-right-long"></i>
-                  </Link>
+                  </LocalizedLink>
                 </div>
               </div>
             </div>
@@ -305,33 +305,31 @@ const Banner = () => {
                     data-delay=".3s"
                     className="text-white mb-20"
                   >
-                    GAME DEVELOPMENT · BLOCKCHAIN · MOBILE & WEB APPS
+                    {slides[2].eyebrow}
                   </h4>
                   <h1
                     data-animation="fadeInUp"
                     data-delay=".5s"
                     className="text-white"
                   >
-                    Build the Future With Charlie Unicorn AI
+                    {slides[2].title}
                   </h1>
                   <p
                     data-animation="fadeInUp"
                     data-delay=".7s"
                     className="mt-20"
                   >
-                    From Unreal Engine 5 game experiences to smart contracts and
-                    cross-platform apps, <br /> we help brands innovate with
-                    modern technology and expert engineering.
+                    {slides[2].description}
                   </p>
-                  <Link
+                  <LocalizedLink
                     data-animation="fadeInUp"
                     data-delay="1s"
-                    href="contact"
+                    href={slideLinks[2]}
                     className="btn-one mt-50"
                   >
-                    Get a Free Consultation{" "}
+                    {slides[2].cta}{" "}
                     <i className="fa-regular fa-arrow-right-long"></i>
-                  </Link>
+                  </LocalizedLink>
                 </div>
               </div>
             </div>

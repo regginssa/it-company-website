@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import { testimonials } from "@/data/testimonials";
+import { useI18n } from "@/contexts/I18nProvider";
+import { getLocalizedTestimonials } from "@/lib/i18n/localized-data";
 
 const QuoteIcon = () => (
   <svg
@@ -32,6 +33,9 @@ const StarRating = () => (
 );
 
 const Testimonial = () => {
+  const { locale, dict } = useI18n();
+  const testimonials = getLocalizedTestimonials(locale);
+
   return (
     <section className="testimonial-two-area pb-120">
       <div className="container">
@@ -68,7 +72,7 @@ const Testimonial = () => {
                 mask="url(#path-2-inside-1_869_295)"
               />
             </svg>
-            Client Feedback
+            {dict.home.testimonial.eyebrow}
           </h5>
           <h2
             data-aos="fade-up"
@@ -76,7 +80,7 @@ const Testimonial = () => {
             data-aos-delay="200"
             data-aos-duration="1500"
           >
-            Trusted Across Web, Mobile, Blockchain, AI & Games
+            {dict.home.testimonial.title}
           </h2>
         </div>
         <div className="swiper testimonial-two__slider">

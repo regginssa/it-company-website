@@ -3,35 +3,36 @@ import { notFound } from "next/navigation";
 import PageLayout from "@/components/layout/PageLayout";
 import CmnBanner from "@/components/layout/banner/CmnBanner";
 import ServiceSingle from "@/components/containers/service/ServiceSingle";
-import { getService, services } from "@/data/services";
+import { serviceSlugs } from "@/data/serviceAssets";
+import { isLocale } from "@/lib/i18n/config";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { getLocalizedService } from "@/lib/i18n/localized-data";
 import { createPageMetadata } from "@/lib/seo";
 
 type PageProps = {
-  params: { slug: string };
+  params: { locale: string; slug: string };
 };
 
 export function generateStaticParams() {
-  return services.map((service) => ({
-    slug: service.slug,
-  }));
+  return serviceSlugs.flatMap((slug) =>
+    ["en", "pl"].map((locale) => ({ locale, slug }))
+  );
 }
 
 export function generateMetadata({ params }: PageProps): Metadata {
-  const service = getService(params.slug);
-
-  if (!service) {
-    return {};
-  }
-
+  const locale = isLocale(params.locale) ? params.locale : "en";
+  const service = getLocalizedService(locale, params.slug);
+  if (!service) return {};
   return createPageMetadata({
     title: service.title,
     description: service.summary,
-    path: `/service-details/${service.slug}`,
+    path: `/${locale}/service-details/${service.slug}`,
   });
 }
 
 const page = ({ params }: PageProps) => {
-  const service = getService(params.slug);
+  const locale = isLocale(params.locale) ? params.locale : "en";
+  const service = getLocalizedService(locale, params.slug);
 
   if (!service) {
     notFound();

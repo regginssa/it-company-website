@@ -1,12 +1,17 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useI18n } from "@/contexts/I18nProvider";
 import One from "@/public/images/shape/faq-shape.png";
 import Two from "@/public/images/shape/faq-line.png";
 import Three from "@/public/images/faq/faq-image.webp";
 
 const Faq = () => {
   const [imgTab, setImgTab] = useState(0);
+  const { dict } = useI18n();
+  const faq = dict.home.faq;
+  const collapseIds = ["collapseOne", "collapseTwo", "collapsethree", "collapseFour"];
+  const headingIds = ["headingOne", "headingTwo", "headingthree", "headingFour"];
 
   return (
     <section className="faq-area sub-bg pt-120 pb-120" id="faq-two">
@@ -62,7 +67,7 @@ const Faq = () => {
                     mask="url(#path-2-inside-1_1120_294)"
                   />
                 </svg>
-                FAQ
+                {faq.eyebrow}
               </h5>
               <h2
                 className=""
@@ -70,7 +75,7 @@ const Faq = () => {
                 data-aos-delay="200"
                 data-aos-duration="1500"
               >
-                Frequently Asked Questions
+                {faq.title}
               </h2>
             </div>
             <div className="faq__item">
@@ -94,7 +99,7 @@ const Faq = () => {
                       }
                       onClick={() => setImgTab(imgTab === 0 ? -1 : 0)}
                     >
-                      What services does Charlie Unicorn AI offer?
+                      {faq.items[0].question}
                     </button>
                   </h3>
                   <div
@@ -107,11 +112,7 @@ const Faq = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        We specialize in web development, mobile app
-                        development, blockchain solutions, Unreal Engine 5 game
-                        development, AI development, and IT consultancy. Visit
-                        our Services page to learn more, or contact us to
-                        discuss your project.
+                        {faq.items[0].answer}
                       </p>
                     </div>
                   </div>
@@ -135,7 +136,7 @@ const Faq = () => {
                       aria-expanded="false"
                       aria-controls="collapseTwo"
                     >
-                      How can I book a consultancy or get in touch?
+                      {faq.items[1].question}
                     </button>
                   </h3>
                   <div
@@ -148,10 +149,7 @@ const Faq = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        Use our Contact page to send a message or request a
-                        consultation. Tell us about your goals, timeline, and
-                        requirements—we will respond promptly to schedule a
-                        call and explore how we can help.
+                        {faq.items[1].answer}
                       </p>
                     </div>
                   </div>
@@ -175,7 +173,7 @@ const Faq = () => {
                       aria-expanded="false"
                       aria-controls="collapsethree"
                     >
-                      What happens after I contact you?
+                      {faq.items[2].question}
                     </button>
                   </h3>
                   <div
@@ -188,10 +186,7 @@ const Faq = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        We review your brief, ask clarifying questions, and
-                        propose a tailored approach—scope, technology stack, and
-                        next steps. There is no online checkout or pricing on
-                        this site; every engagement starts with a conversation.
+                        {faq.items[2].answer}
                       </p>
                     </div>
                   </div>
@@ -215,7 +210,7 @@ const Faq = () => {
                       aria-expanded="false"
                       aria-controls="collapseFour"
                     >
-                      Who do you typically work with?
+                      {faq.items[3].question}
                     </button>
                   </h3>
                   <div
@@ -228,11 +223,7 @@ const Faq = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        We partner with startups, growing businesses, and
-                        enterprises that need a reliable software team for web,
-                        mobile, blockchain, games, or AI projects. Whether you
-                        need a full build or expert guidance, we are here to
-                        help.
+                        {faq.items[3].answer}
                       </p>
                     </div>
                   </div>

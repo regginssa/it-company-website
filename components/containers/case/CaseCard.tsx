@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import LocalizedLink from "@/components/layout/LocalizedLink";
 import type { PortfolioCase } from "@/data/portfolioCases";
 
 type CaseCardProps = {
@@ -7,6 +9,8 @@ type CaseCardProps = {
 };
 
 const CaseCard = ({ project }: CaseCardProps) => {
+  const detailHref = `/case-details/${project.slug}`;
+
   return (
     <div className="case-two__item">
       <div className="image case-two__image">
@@ -15,17 +19,14 @@ const CaseCard = ({ project }: CaseCardProps) => {
       <div className="case-two__content">
         <span>{project.category}</span>
         <h4>
-          <Link
-            href={`/case-details/${project.slug}`}
-            className="text-white"
-          >
+          <LocalizedLink href={detailHref} className="text-white">
             {project.title}
-          </Link>
+          </LocalizedLink>
         </h4>
       </div>
-      <Link href={`/case-details/${project.slug}`} className="case-two__btn">
+      <LocalizedLink href={detailHref} className="case-two__btn">
         <i className="fa-regular fa-arrow-right"></i>
-      </Link>
+      </LocalizedLink>
     </div>
   );
 };

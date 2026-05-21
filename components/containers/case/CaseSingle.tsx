@@ -1,13 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import type { PortfolioCase } from "@/data/portfolioCases";
-import Two from "@/public/images/case/case-details-image2.jpg";
-import Three from "@/public/images/case/case-details-image3.jpg";
+import { useI18n } from "@/contexts/I18nProvider";
 
 type CaseSingleProps = {
   project: PortfolioCase;
 };
 
 const CaseSingle = ({ project }: CaseSingleProps) => {
+  const { dict } = useI18n();
+  const labels = dict.portfolio.single;
+
   return (
     <section className="case-single-area pt-120 pb-120">
       <div className="container">
@@ -19,16 +23,18 @@ const CaseSingle = ({ project }: CaseSingleProps) => {
           <p>{project.description}</p>
           <ul className="case-date py-4 bor-top bor-bottom mt-40">
             <li>
-              <span>Category:</span> {project.category}
+              <span>{labels.category}</span> {project.category}
             </li>
             <li>
-              <span>Platforms:</span> {project.platforms}
+              <span>{labels.platforms}</span> {project.platforms}
             </li>
             <li>
-              <span>Built by:</span> Charlie Unicorn AI
+              <span>{labels.builtBy}</span> {dict.common.builtBy}
             </li>
           </ul>
-          <h2 className="case-single__title mt-40 mb-30">Key Features</h2>
+          <h2 className="case-single__title mt-40 mb-30">
+            {labels.keyFeatures}
+          </h2>
           <div className="case-challenge-list mt-30">
             <ul className="case-challenge">
               {project.highlights.slice(0, 2).map((item) => (
@@ -47,7 +53,9 @@ const CaseSingle = ({ project }: CaseSingleProps) => {
               ))}
             </ul>
           </div>
-          <h2 className="case-single__title mt-40 mb-30">Project Overview</h2>
+          <h2 className="case-single__title mt-40 mb-30">
+            {labels.projectOverview}
+          </h2>
           <p>{project.summary}</p>
         </div>
       </div>

@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import type { ServiceItem } from "@/data/services";
-import { services } from "@/data/services";
+import type { ServiceItem } from "@/lib/i18n/types";
+import LocalizedLink from "@/components/layout/LocalizedLink";
+import { useI18n } from "@/contexts/I18nProvider";
+import { getLocalizedServices } from "@/lib/i18n/localized-data";
 
 type ServiceSingleProps = {
   service: ServiceItem;
@@ -11,6 +12,9 @@ type ServiceSingleProps = {
 
 const ServiceSingle = ({ service }: ServiceSingleProps) => {
   const [openFaq, setOpenFaq] = useState(0);
+  const { locale, dict } = useI18n();
+  const labels = dict.services.single;
+  const allServices = getLocalizedServices(locale);
 
   return (
     <section className="service-single-area pt-120 pb-120">
@@ -26,7 +30,7 @@ const ServiceSingle = ({ service }: ServiceSingleProps) => {
               <p>{service.descriptionExtra}</p>
               <div className="row g-5 mt-40 mb-40 align-items-center">
                 <div className="col-lg-5">
-                  <h4 className="mb-20">What You Get</h4>
+                  <h4 className="mb-20">{labels.whatYouGet}</h4>
                   <ul>
                     {service.benefits.map((benefit) => (
                       <li key={benefit} className="mb-15">
@@ -45,13 +49,13 @@ const ServiceSingle = ({ service }: ServiceSingleProps) => {
                   </div>
                 </div>
               </div>
-              <h3 className="title mb-30">Common Questions</h3>
+              <h3 className="title mb-30">{labels.commonQuestions}</h3>
               <p className="mb-30">
-                Learn more about our {service.title.toLowerCase()} offering. Ready
-                to discuss your project?{" "}
-                <Link href="/contact">Contact Charlie Unicorn AI</Link> to book a
-                consultancy—there is no online checkout or fixed pricing on this
-                site.
+                {labels.learnMore.replace("{service}", service.title.toLowerCase())}{" "}
+                <LocalizedLink href="/contact">
+                  {dict.common.contactUsLink}
+                </LocalizedLink>{" "}
+                {labels.bookConsultancy}
               </p>
               <div className="accordion" id="accordionExample">
                 {service.faqs.map((faq, index) => (
@@ -100,31 +104,33 @@ const ServiceSingle = ({ service }: ServiceSingleProps) => {
           <div className="col-lg-4 order-1 order-lg-2">
             <div className="service-single__right-item">
               <div className="item sub-bg mb-30">
-                <h4 className="mb-20">All Services</h4>
+                <h4 className="mb-20">{labels.allServices}</h4>
                 <ul className="category service-category">
-                  {services.map((item) => (
+                  {allServices.map((item) => (
                     <li
                       key={item.slug}
                       className={item.slug === service.slug ? "active" : ""}
                     >
-                      <Link href={`/service-details/${item.slug}`}>
+                      <LocalizedLink href={`/service-details/${item.slug}`}>
                         {item.title}
-                      </Link>{" "}
+                      </LocalizedLink>{" "}
                       <i className="fa-regular fa-arrow-right-long primary-color"></i>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="item sub-bg mb-30">
-                <h4 className="mb-20">Book a Consultancy</h4>
+                <h4 className="mb-20">{labels.bookConsultancyTitle}</h4>
                 <p className="mb-20">
-                  Tell us about your goals and we will recommend the right
-                  approach for {service.title.toLowerCase()} or a combined
-                  solution.
+                  {labels.sidebarText.replace(
+                    "{service}",
+                    service.title.toLowerCase()
+                  )}
                 </p>
-                <Link href="/contact" className="btn-one">
-                  Contact Us <i className="fa-regular fa-arrow-right-long"></i>
-                </Link>
+                <LocalizedLink href="/contact" className="btn-one">
+                  {labels.contactUs}{" "}
+                  <i className="fa-regular fa-arrow-right-long"></i>
+                </LocalizedLink>
               </div>
             </div>
           </div>

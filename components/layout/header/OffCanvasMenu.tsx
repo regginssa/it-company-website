@@ -1,26 +1,18 @@
 "use client";
-import { useState } from "react";
+
 import Image from "next/image";
-import Link from "next/link";
 import svgLogo from "@/public/images/logo/logo.png";
-const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: any) => {
-  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+import LocalizedLink from "@/components/layout/LocalizedLink";
+import { useI18n } from "@/contexts/I18nProvider";
 
-  const handleSubmenu = (submenu: string) => {
-    if (submenu === openSubMenu) {
-      setOpenSubMenu(null);
-    } else {
-      setOpenSubMenu(submenu);
-    }
-  };
+type OffCanvasMenuProps = {
+  toggleMenu: boolean;
+  handleToggleMenu: (open: boolean) => void;
+};
 
-  const isSubMenuOpen = (submenu: string) => {
-    return submenu === openSubMenu ? "sub-menu-active" : " ";
-  };
-
-  const isSubMenuButton = (submenu: string) => {
-    return submenu === openSubMenu ? " drop-active" : " ";
-  };
+const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: OffCanvasMenuProps) => {
+  const { dict } = useI18n();
+  const { common } = dict;
 
   return (
     <aside
@@ -29,128 +21,69 @@ const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: any) => {
       aria-label="Mobile navigation"
     >
       <div className="sidebar__overlay"></div>
-      <Link href="/" className="logo mb-40" aria-label="Charlie Unicorn AI home">
-        <Image src={svgLogo} alt="Charlie Unicorn AI logo" priority />
-      </Link>
+      <LocalizedLink
+        href="/"
+        className="logo mb-40"
+        aria-label={`${common.siteName} home`}
+      >
+        <Image src={svgLogo} alt={`${common.siteName} logo`} priority />
+      </LocalizedLink>
       <div className="sidebar__search mb-30">
-        <input type="text" placeholder="Search..." />
+        <input type="text" placeholder={common.search} />
         <i className="fa-regular fa-magnifying-glass"></i>
       </div>
       <div className="mobile-menu overflow-hidden">
         <nav className="mean-nav">
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <LocalizedLink href="/">{common.nav.home}</LocalizedLink>
             </li>
             <li>
-              <Link href="about">About</Link>
+              <LocalizedLink href="/about">{common.nav.about}</LocalizedLink>
             </li>
             <li>
-              <a
-                className={`drop ${isSubMenuButton("services")}`}
-                onClick={() => handleSubmenu("services")}
-              >
-                Services
-              </a>
-              <ul className={`sub-menu ${isSubMenuOpen("services")}`}>
-                <li>
-                  <Link href="service-solutions">IT Solutions</Link>
-                </li>
-                <li>
-                  <Link href="service">IT Services</Link>
-                </li>
-                <li>
-                  <Link href="service-details">Service Details</Link>
-                </li>
-              </ul>
+              <LocalizedLink href="/service">{common.nav.services}</LocalizedLink>
             </li>
             <li>
-              <a
-                className={`drop ${isSubMenuButton("pages")}`}
-                onClick={() => handleSubmenu("pages")}
-              >
-                Pages
-              </a>
-              <ul className={`sub-menu ${isSubMenuOpen("pages")}`}>
-                <li>
-                  <Link href="case">Case Study</Link>
-                </li>
-                <li>
-                  <Link href="case">Our Portfolio</Link>
-                </li>
-                <li>
-                  <Link href="team">Our Team</Link>
-                </li>
-                <li>
-                  <Link href="team-details">Team Details</Link>
-                </li>
-                <li>
-                  <Link href="pricing">Pricing</Link>
-                </li>
-                <li>
-                  <Link href="faq">FAQ&apos;s</Link>
-                </li>
-                <li>
-                  <Link href="error">404 Error</Link>
-                </li>
-              </ul>
+              <LocalizedLink href="/case">{common.nav.caseStudy}</LocalizedLink>
             </li>
             <li>
-              <a
-                className={`drop ${isSubMenuButton("blog")}`}
-                onClick={() => handleSubmenu("blog")}
-              >
-                Blog
-              </a>
-              <ul className={`sub-menu ${isSubMenuOpen("blog")}`}>
-                <li>
-                  <Link href="blog">Blog Grid</Link>
-                </li>
-                <li>
-                  <Link href="blog-standard">Blog Standard</Link>
-                </li>
-                <li>
-                  <Link href="blog-details">Blog Details</Link>
-                </li>
-              </ul>
+              <LocalizedLink href="/faq">{common.nav.faq}</LocalizedLink>
             </li>
             <li>
-              <Link href="contact">Contact</Link>
+              <LocalizedLink href="/contact">{common.nav.contact}</LocalizedLink>
             </li>
           </ul>
         </nav>
       </div>
       <ul className="info pt-40">
         <li>
-          <i className="fa-solid primary-color fa-location-dot"></i>{" "}
-          <Link href="/">example@example.com</Link>
+          <i className="fa-solid primary-color fa-paper-plane"></i>{" "}
+          <a href={`mailto:${common.email}`}>{common.email}</a>
         </li>
         <li className="py-2">
           <i className="fa-solid primary-color fa-phone-volume"></i>{" "}
-          <Link href="tel:+208-6666-0112">+208-6666-0112</Link>
-        </li>
-        <li>
-          <i className="fa-solid primary-color fa-paper-plane"></i>{" "}
-          <Link href="/">info@example.com</Link>
+          <a href="tel:+48504412991">{common.phone}</a>
         </li>
       </ul>
       <div className="social-icon mt-20">
-        <Link href="/">
+        <LocalizedLink href="/">
           <i className="fa-brands fa-facebook-f"></i>
-        </Link>
-        <Link href="/">
+        </LocalizedLink>
+        <LocalizedLink href="/">
           <i className="fa-brands fa-twitter"></i>
-        </Link>
-        <Link href="/">
+        </LocalizedLink>
+        <LocalizedLink href="/">
           <i className="fa-brands fa-linkedin-in"></i>
-        </Link>
-        <Link href="/">
+        </LocalizedLink>
+        <LocalizedLink href="/">
           <i className="fa-brands fa-youtube"></i>
-        </Link>
+        </LocalizedLink>
       </div>
       <button
         id="closeButton"
         className="text-white"
+        type="button"
         onClick={() => handleToggleMenu(false)}
       >
         <i className="fa-solid fa-xmark"></i>

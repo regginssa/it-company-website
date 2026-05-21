@@ -8,9 +8,12 @@ import Three from "@/public/images/shape/choose-shape-left.png";
 import Four from "@/public/images/choose/choose-image1.webp";
 import Five from "@/public/images/icon/about-icon1.png";
 import Six from "@/public/images/icon/about-icon2.png";
+import { useI18n } from "@/contexts/I18nProvider";
 
 const ChooseArea = () => {
   const [isOpen, setOpen] = useState(false);
+  const { dict } = useI18n();
+  const choose = dict.home.choose;
   return (
     <>
       <section className="choose-area sub-bg pt-120 pb-120">
@@ -86,7 +89,7 @@ const ChooseArea = () => {
                       mask="url(#path-2-inside-1_682_455)"
                     />
                   </svg>
-                  WHY Choose US
+                  {choose.eyebrow}
                 </h5>
                 <h2
                   className=""
@@ -94,7 +97,7 @@ const ChooseArea = () => {
                   data-aos-delay="200"
                   data-aos-duration="1500"
                 >
-                  Elevate Your Achievements Using Premier IT Solutions
+                  {choose.title}
                 </h2>
               </div>
               <div
@@ -109,8 +112,8 @@ const ChooseArea = () => {
                       <Image src={Five} alt="icon" priority />
                     </div>
                     <div className="content">
-                      <h4 className="mb-1">Best Services</h4>
-                      <p>Scelerisque augue the consequat sodales</p>
+                      <h4 className="mb-1">{choose.bestServices}</h4>
+                      <p>{choose.bestServicesDesc}</p>
                     </div>
                   </div>
                 </div>
@@ -120,8 +123,8 @@ const ChooseArea = () => {
                       <Image src={Six} alt="icon" priority />
                     </div>
                     <div className="content">
-                      <h4 className="mb-1">24/7 Call Support</h4>
-                      <p>Scelerisque augue the consequat sodales</p>
+                      <h4 className="mb-1">{choose.support}</h4>
+                      <p>{choose.supportDesc}</p>
                     </div>
                   </div>
                 </div>
@@ -133,7 +136,7 @@ const ChooseArea = () => {
                 data-aos-duration="1500"
               >
                 <div className="progress__title mb-10">
-                  <h5>Information Technology</h5>
+                  <h5>{choose.progressIt}</h5>
                   <span>
                     <span className="progress-count">80</span>%
                   </span>
@@ -158,7 +161,7 @@ const ChooseArea = () => {
                 data-aos-duration="1500"
               >
                 <div className="progress__title mb-10">
-                  <h5>Technology Consultant</h5>
+                  <h5>{choose.progressConsultant}</h5>
                   <span>
                     <span className="progress-count">95</span>%
                   </span>

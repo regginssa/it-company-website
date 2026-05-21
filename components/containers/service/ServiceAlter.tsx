@@ -1,19 +1,21 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import One from "@/public/images/shape/service-bg-shape.png";
 import Three from "@/public/images/shape/service-item-shape.png";
 import Four from "@/public/images/icon/service-icon1.png";
 import Five from "@/public/images/icon/service-icon2.png";
 import Six from "@/public/images/icon/service-icon3.png";
-import { services } from "@/data/services";
+import { useI18n } from "@/contexts/I18nProvider";
+import { getLocalizedServices } from "@/lib/i18n/localized-data";
+import LocalizedLink from "@/components/layout/LocalizedLink";
 
 const alterIcons = [Four, Five, Six];
-const alterServices = services.slice(0, 3);
 
 const ServiceAlter = () => {
   const [isOverviewOpen, setOverviewOpen] = useState(1);
+  const { locale } = useI18n();
+  const alterServices = getLocalizedServices(locale).slice(0, 3);
 
   return (
     <section className="service-area pt-120 pb-120" id="service-section">
@@ -45,9 +47,9 @@ const ServiceAlter = () => {
                   <Image src={alterIcons[index]} alt="icon" priority />
                 </div>
                 <h4>
-                  <Link href={`/service-details/${service.slug}`}>
+                  <LocalizedLink href={`/service-details/${service.slug}`}>
                     {service.title}
-                  </Link>
+                  </LocalizedLink>
                 </h4>
                 <p>{service.summary}</p>
               </div>

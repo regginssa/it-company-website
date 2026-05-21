@@ -1,42 +1,23 @@
-import type { Metadata } from "next";
 import "@/public/styles/style.scss";
 import InitAnimations from "@/components/layout/InitAnimations";
-import JsonLd from "@/components/seo/JsonLd";
-import {
-  createPageMetadata,
-  organizationJsonLd,
-  siteConfig,
-  webSiteJsonLd,
-} from "@/lib/seo";
-
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  ...createPageMetadata({
-    title: siteConfig.name,
-    description: siteConfig.description,
-    path: "",
-  }),
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
-  creator: siteConfig.name,
-  publisher: siteConfig.name,
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-};
+import { I18nProvider } from "@/contexts/I18nProvider";
+import { defaultLocale } from "@/lib/i18n/config";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const dict = getDictionary(defaultLocale);
+
   return (
-    <html lang="en">
+    <html lang={defaultLocale} suppressHydrationWarning>
       <body>
-        <JsonLd data={[organizationJsonLd(), webSiteJsonLd()]} />
-        {children}
-        <InitAnimations />
+        <I18nProvider locale={defaultLocale} dict={dict}>
+          {children}
+          <InitAnimations />
+        </I18nProvider>
       </body>
     </html>
   );

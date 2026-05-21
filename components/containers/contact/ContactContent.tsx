@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import One from "@/public/images/icon/section-title.png";
+import LocalizedLink from "@/components/layout/LocalizedLink";
+import { useI18n } from "@/contexts/I18nProvider";
 
 const ContactContent = () => {
+  const { dict } = useI18n();
+  const c = dict.contact;
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
   );
@@ -32,7 +35,7 @@ const ContactContent = () => {
 
       if (!response.ok) {
         setStatus("error");
-        setErrorMessage(data.error ?? "Failed to send message.");
+        setErrorMessage(data.error ?? c.sendFailed);
         return;
       }
 
@@ -40,7 +43,7 @@ const ContactContent = () => {
       (e.target as HTMLFormElement).reset();
     } catch {
       setStatus("error");
-      setErrorMessage("Network error. Please try again.");
+      setErrorMessage(c.networkError);
     }
   };
 
@@ -50,12 +53,8 @@ const ContactContent = () => {
         <div className="row g-4">
           <div className="col-lg-5">
             <div className="contact__left-item primary-bg">
-              <h3 className="text-white mb-30">Contact Information</h3>
-              <p className="text-white">
-                Reach Charlie Unicorn AI to discuss web, mobile, blockchain, AI,
-                or Unreal Engine 5 projects—or book a consultancy. We respond
-                during business hours, Monday to Friday.
-              </p>
+              <h3 className="text-white mb-30">{c.infoTitle}</h3>
+              <p className="text-white">{c.infoDescription}</p>
               <ul className="mt-40 mb-40">
                 <li>
                   <i>
@@ -77,15 +76,13 @@ const ContactContent = () => {
                     </svg>
                   </i>
                   <div>
-                    <span className="text-white">Phone</span>
+                    <span className="text-white">{c.phoneLabel}</span>
                     <h3 className="mt-1">
-                      <Link className="text-white" href="tel:+48504412991">
-                        +48 504 412 991
-                      </Link>
+                      <a className="text-white" href="tel:+48504412991">
+                        {dict.common.phone}
+                      </a>
                     </h3>
-                    <p className="text-white mt-1 mb-0 small">
-                      Mon – Fri: 9:00 AM – 5:00 PM
-                    </p>
+                    <p className="text-white mt-1 mb-0 small">{c.hours}</p>
                   </div>
                 </li>
                 <li>
@@ -112,14 +109,14 @@ const ContactContent = () => {
                     </svg>
                   </i>
                   <div>
-                    <span className="text-white">Email</span>
+                    <span className="text-white">{c.emailLabel}</span>
                     <h3 className="mt-1">
-                      <Link
+                      <a
                         className="text-white"
-                        href="mailto:team@charlieunicornai.eu"
+                        href={`mailto:${dict.common.email}`}
                       >
-                        team@charlieunicornai.eu
-                      </Link>
+                        {dict.common.email}
+                      </a>
                     </h3>
                   </div>
                 </li>
@@ -147,26 +144,26 @@ const ContactContent = () => {
                     </svg>
                   </i>
                   <div>
-                    <span className="text-white">Location</span>
+                    <span className="text-white">{c.locationLabel}</span>
                     <h3 className="mt-1 text-white">
-                      Kasztanowa Street 17/1,
+                      {c.addressLine1}
                       <br />
-                      Manowo, Poland
+                      {c.addressLine2}
                     </h3>
                   </div>
                 </li>
               </ul>
-              <h4 className="text-white mb-20">Follow Social:</h4>
+              <h4 className="text-white mb-20">{dict.common.followSocial}</h4>
               <div className="social">
-                <Link href="/">
+                <LocalizedLink href="/">
                   <i className="fa-brands fa-facebook-f"></i>
-                </Link>
-                <Link href="/">
+                </LocalizedLink>
+                <LocalizedLink href="/">
                   <i className="fa-brands fa-twitter"></i>
-                </Link>
-                <Link href="/">
+                </LocalizedLink>
+                <LocalizedLink href="/">
                   <i className="fa-brands fa-linkedin-in"></i>
-                </Link>
+                </LocalizedLink>
               </div>
             </div>
           </div>
@@ -180,7 +177,7 @@ const ContactContent = () => {
                   data-aos-duration="1500"
                 >
                   <Image className="me-1" src={One} alt="icon" priority />
-                  GET IN TOUCH
+                  {c.formEyebrow}
                 </h5>
                 <h2
                   className=""
@@ -188,7 +185,7 @@ const ContactContent = () => {
                   data-aos-delay="200"
                   data-aos-duration="1500"
                 >
-                  Ready to Get Started?
+                  {c.formTitle}
                 </h2>
                 <p
                   data-aos="fade-up"
@@ -196,55 +193,51 @@ const ContactContent = () => {
                   data-aos-delay="400"
                   data-aos-duration="1500"
                 >
-                  Share your idea, timeline, and requirements—we will reply by
-                  email or phone to schedule a consultancy and outline next
-                  steps. No fixed pricing on this site; every project starts
-                  with a conversation.
+                  {c.formDescription}
                 </p>
               </div>
               <div className="contact__form">
                 <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-6">
-                      <label htmlFor="name">Your Name*</label>
+                      <label htmlFor="name">{c.nameLabel}</label>
                       <input
                         id="name"
                         name="name"
                         className="bg-transparent bor"
                         type="text"
-                        placeholder="Your Name"
+                        placeholder={c.namePlaceholder}
                         required
                         disabled={status === "loading"}
                       />
                     </div>
                     <div className="col-6">
-                      <label htmlFor="email">Your Email*</label>
+                      <label htmlFor="email">{c.emailFieldLabel}</label>
                       <input
                         className="bg-transparent bor"
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="your@company.com"
+                        placeholder={c.emailPlaceholder}
                         required
                         disabled={status === "loading"}
                       />
                     </div>
                   </div>
                   <div className="text-area">
-                    <label htmlFor="message">Write Message*</label>
+                    <label htmlFor="message">{c.messageLabel}</label>
                     <textarea
                       className="bg-transparent bor"
                       id="message"
                       name="message"
-                      placeholder="Tell us about your project or book a consultancy..."
+                      placeholder={c.messagePlaceholder}
                       required
                       disabled={status === "loading"}
                     ></textarea>
                   </div>
                   {status === "success" && (
                     <p className="text-success mb-3">
-                      Thank you! Your message was sent. We will get back to you
-                      soon.
+                      {c.success}
                     </p>
                   )}
                   {status === "error" && (
@@ -257,7 +250,7 @@ const ContactContent = () => {
                       className="btn-one"
                       disabled={status === "loading"}
                     >
-                      {status === "loading" ? "Sending..." : "Send Message"}{" "}
+                      {status === "loading" ? c.sending : c.sendMessage}{" "}
                       <i className="fa-regular fa-arrow-right-long"></i>
                     </button>
                   </div>

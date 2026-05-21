@@ -1,13 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import logo from "@/public/images/logo/logo.png";
 import OffCanvasMenu from "./OffCanvasMenu";
+import LanguageSelector from "@/components/layout/LanguageSelector";
+import LocalizedLink from "@/components/layout/LocalizedLink";
+import { useI18n } from "@/contexts/I18nProvider";
 
 const Header = () => {
-  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+  const { dict } = useI18n();
+  const { common } = dict;
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [searchToggle, setSearchToggle] = useState(false);
 
   const handleToggleMenu = () => {
     setToggleMenu(!toggleMenu);
@@ -16,36 +21,20 @@ const Header = () => {
   useEffect(() => {
     const handleResizeHeader = (): void => {
       setToggleMenu(false);
-      setOpenSubMenu(null);
     };
 
     window.addEventListener("resize", handleResizeHeader);
-
-    return () => {
-      window.removeEventListener("resize", handleResizeHeader);
-    };
+    return () => window.removeEventListener("resize", handleResizeHeader);
   }, []);
 
-  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      if (scrollPosition > 200) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 200);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // search toggle
-  const [searchToggle, setSearchToggle] = useState(false);
 
   const handleSearch = () => {
     setSearchToggle(!searchToggle);
@@ -55,7 +44,7 @@ const Header = () => {
     setSearchToggle(false);
   };
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
 
@@ -69,68 +58,43 @@ const Header = () => {
       >
         <div className="container header__container">
           <div className="header__main">
-            <Link href="/" className="logo" aria-label="Charlie Unicorn AI home">
-              <Image src={logo} alt="Charlie Unicorn AI logo" priority />
-            </Link>
+            <LocalizedLink
+              href="/"
+              className="logo"
+              aria-label={`${common.siteName} home`}
+            >
+              <Image src={logo} alt={`${common.siteName} logo`} priority />
+            </LocalizedLink>
             <div className="main-menu d-none d-lg-block">
               <nav aria-label="Primary navigation">
                 <ul>
                   <li>
-                    <Link href="/">Home</Link>
+                    <LocalizedLink href="/">{common.nav.home}</LocalizedLink>
                   </li>
                   <li>
-                    <Link href="about">About</Link>
+                    <LocalizedLink href="/about">
+                      {common.nav.about}
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link href="/service">Services</Link>
+                    <LocalizedLink href="/service">
+                      {common.nav.services}
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link href="/case">Case Study</Link>
-                    {/* <ul className="sub-menu">
-                      <li>
-                        <Link href="case">Case Study</Link>
-                      </li>
-                      <li>
-                        <Link href="case">Our Portfolio</Link>
-                      </li>
-                      <li>
-                        <Link href="team">Our Team</Link>
-                      </li>
-                      <li>
-                        <Link href="team-details">Team Details</Link>
-                      </li>
-                      <li>
-                        <Link href="pricing">Pricing</Link>
-                      </li>
-                      <li>
-                        <Link href="faq">FAQ&apos;s</Link>
-                      </li>
-                      <li>
-                        <Link href="error">404 Error</Link>
-                      </li>
-                    </ul> */}
+                    <LocalizedLink href="/case">
+                      {common.nav.caseStudy}
+                    </LocalizedLink>
                   </li>
                   <li>
-                    <Link href="faq">FAQ&apos;s</Link>
+                    <LocalizedLink href="/faq">{common.nav.faq}</LocalizedLink>
                   </li>
-                  {/* <li>
-                    <Link href="/blog">Blog</Link>
-                    <ul className="sub-menu">
-                      <li>
-                        <Link href="blog">Blog Grid</Link>
-                      </li>
-                      <li>
-                        <Link href="blog-standard">Blog Standard</Link>
-                      </li>
-                      <li>
-                        <Link href="blog-details">Blog Details</Link>
-                      </li>
-                    </ul>
-                  </li> */}
                   <li>
-                    <Link href="/contact">Contact</Link>
+                    <LocalizedLink href="/contact">
+                      {common.nav.contact}
+                    </LocalizedLink>
                   </li>
-                  <li className="ml-20 d-none d-lg-block">
+                  {/* <li className="ml-20 d-none d-lg-block">
                     <button
                       type="button"
                       className="search-trigger border-0 bg-transparent p-0"
@@ -157,14 +121,16 @@ const Header = () => {
                         </defs>
                       </svg>
                     </button>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </div>
-            <div className="d-none d-xl-flex gap-4">
-              <Link href="contact" className="btn-one">
-                Get A Quote <i className="fa-regular fa-arrow-right-long"></i>
-              </Link>
+            <div className="d-none d-xl-flex gap-4 align-items-center">
+              <LanguageSelector />
+              {/* <LocalizedLink href="/contact" className="btn-one">
+                {common.getAQuote}{" "}
+                <i className="fa-regular fa-arrow-right-long"></i>
+              </LocalizedLink> */}
               <div className="about-three__left-item d-flex flex-wrap gap-2 align-items-center">
                 <div className="about-call-icon">
                   <span>
@@ -207,21 +173,26 @@ const Header = () => {
                   </span>
                 </div>
                 <div className="info">
-                  <span className="sm-font fw-600 text-white">Call Us Now</span>
+                  <span className="sm-font fw-600 text-white">
+                    {common.callUsNow}
+                  </span>
                   <p className="text-white mb-0">
-                    <Link className="text-white" href="tel:+48504412991">
-                      +48 504 412 991
-                    </Link>
+                    <a className="text-white" href="tel:+48504412991">
+                      {common.phone}
+                    </a>
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bars d-block d-lg-none">
-              <i
-                id="openButton"
-                className="fa-solid fa-bars"
-                onClick={handleToggleMenu}
-              ></i>
+            <div className="d-flex d-xl-none align-items-center gap-3">
+              <LanguageSelector />
+              <div className="bars d-block d-lg-none">
+                <i
+                  id="openButton"
+                  className="fa-solid fa-bars"
+                  onClick={handleToggleMenu}
+                ></i>
+              </div>
             </div>
           </div>
         </div>
@@ -247,7 +218,7 @@ const Header = () => {
                 <input
                   type="search"
                   className="main-search-input"
-                  placeholder="Search..."
+                  placeholder={common.search}
                   onClick={handleClick}
                 />
               </div>

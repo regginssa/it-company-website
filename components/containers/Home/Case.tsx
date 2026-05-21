@@ -5,9 +5,13 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import One from "@/public/images/bg/case-two-bg.png";
 import CaseCard from "@/components/containers/case/CaseCard";
-import { portfolioCases } from "@/data/portfolioCases";
+import { useI18n } from "@/contexts/I18nProvider";
+import { getLocalizedPortfolioCases } from "@/lib/i18n/localized-data";
 
 const Case = () => {
+  const { locale, dict } = useI18n();
+  const portfolioCases = getLocalizedPortfolioCases(locale);
+
   return (
     <section className="case-two-area secondary-bg pt-120">
       <div className="case-two__bg">
@@ -47,7 +51,7 @@ const Case = () => {
                   mask="url(#path-2-inside-1_1120_297)"
                 />
               </svg>
-              OUR PORTFOLIO
+              {dict.home.case.eyebrow}
             </h5>
             <h2
               className="text-white "
@@ -55,7 +59,7 @@ const Case = () => {
               data-aos-delay="200"
               data-aos-duration="1500"
             >
-              Products Built by Charlie Unicorn AI
+              {dict.home.case.title}
             </h2>
           </div>
           <div

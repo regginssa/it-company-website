@@ -1,14 +1,19 @@
-import Link from "next/link";
+"use client";
+
 import Image from "next/image";
 import One from "@/public/images/banner/inner-banner-shape2.png";
 import Two from "@/public/images/banner/inner-banner-shape1.png";
 import Three from "@/public/images/banner/inner-banner-shape3.png";
+import LocalizedLink from "@/components/layout/LocalizedLink";
+import { useI18n } from "@/contexts/I18nProvider";
 
 type CmnBannerProps = {
   title: string;
 };
 
 const CmnBanner = ({ title }: CmnBannerProps) => {
+  const { dict } = useI18n();
+
   return (
     <section
       className="banner__inner-page bg-image pt-180 pb-180 bg-image"
@@ -47,7 +52,6 @@ const CmnBanner = ({ title }: CmnBannerProps) => {
       <div className="container">
         <h1
           id="page-title"
-          className=""
           data-aos="fade-up"
           data-aos-delay="0"
           data-aos-duration="1500"
@@ -63,7 +67,7 @@ const CmnBanner = ({ title }: CmnBannerProps) => {
         >
           <ol className="list-unstyled d-flex flex-wrap align-items-center mb-0">
             <li>
-              <Link href="/">Home</Link>
+              <LocalizedLink href="/">{dict.common.home}</LocalizedLink>
             </li>
             <li aria-current="page">
               <span>

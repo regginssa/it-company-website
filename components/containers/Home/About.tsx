@@ -1,5 +1,8 @@
-import Link from "next/link";
+"use client";
+
 import Image from "next/image";
+import LocalizedLink from "@/components/layout/LocalizedLink";
+import { useI18n } from "@/contexts/I18nProvider";
 import One from "@/public/images/shape/about-two-shape.png";
 import Two from "@/public/images/shape/about-two-dot.png";
 import Three from "@/public/images/shape/about-circle-helper.png";
@@ -9,6 +12,9 @@ import Six from "@/public/images/shape/about-two-circle.png";
 import Seven from "@/public/images/about/singature.png";
 
 const About = () => {
+  const { dict } = useI18n();
+  const about = dict.home.about;
+
   return (
     <section className="about-two-area pt-120" id="about-two">
       <div className="about-two__shape">
@@ -97,7 +103,7 @@ const About = () => {
                     mask="url(#path-2-inside-1_668_146)"
                   />
                 </svg>
-                WHO WE ARE
+                {about.eyebrow}
               </h5>
               <h2
                 className=""
@@ -105,7 +111,7 @@ const About = () => {
                 data-aos-delay="200"
                 data-aos-duration="1500"
               >
-                Ensuring Your Success Through Reliable IT Solutions{" "}
+                {about.title}
               </h2>
               <p
                 className=""
@@ -113,11 +119,7 @@ const About = () => {
                 data-aos-delay="400"
                 data-aos-duration="1500"
               >
-                Charlie Unicorn AI is a full-stack software studio specializing
-                in web development, mobile applications, blockchain platforms,
-                and Unreal Engine 5 game development. We partner with startups
-                and enterprises to deliver secure, scalable solutions—from
-                concept and architecture through launch and long-term support.
+                {about.description}
               </p>
             </div>
             <div
@@ -128,18 +130,22 @@ const About = () => {
             >
               <ul>
                 <li>
-                  <i className="fa-solid fa-check"></i>Technology Consultancy
+                  <i className="fa-solid fa-check"></i>
+                  {about.bullets[0]}
                 </li>
                 <li>
-                  <i className="fa-solid fa-check"></i>We Provide best services
+                  <i className="fa-solid fa-check"></i>
+                  {about.bullets[1]}
                 </li>
               </ul>
               <ul>
                 <li>
-                  <i className="fa-solid fa-check"></i>Maintenance And Support
+                  <i className="fa-solid fa-check"></i>
+                  {about.bullets[2]}
                 </li>
                 <li>
-                  <i className="fa-solid fa-check"></i>Requirements Gathering
+                  <i className="fa-solid fa-check"></i>
+                  {about.bullets[3]}
                 </li>
               </ul>
             </div>
@@ -149,9 +155,9 @@ const About = () => {
               data-aos-delay="400"
               data-aos-duration="1500"
             >
-              <Link href="about" className="btn-one">
-                About Us <i className="fa-regular fa-arrow-right-long"></i>
-              </Link>
+              <LocalizedLink href="/about" className="btn-one">
+                {about.cta} <i className="fa-regular fa-arrow-right-long"></i>
+              </LocalizedLink>
               <Image src={Seven} alt="singature" priority />
             </div>
           </div>

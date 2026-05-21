@@ -1,9 +1,15 @@
-import Link from "next/link";
+"use client";
+
 import Image from "next/image";
+import LocalizedLink from "@/components/layout/LocalizedLink";
+import { useI18n } from "@/contexts/I18nProvider";
 import One from "@/public/images/shape/quote-shape.png";
 import Two from "@/public/images/shape/quote-shape2.png";
 
 const Quote = () => {
+  const { dict } = useI18n();
+  const quote = dict.home.quote;
+
   return (
     <section className="quote-area">
       <div className="container">
@@ -55,7 +61,7 @@ const Quote = () => {
                     strokeWidth="1.5"
                   />
                 </svg>
-                GET IN TOUCH
+                {quote.eyebrow}
               </h5>
               <h2
                 data-aos="fade-left"
@@ -63,18 +69,18 @@ const Quote = () => {
                 data-aos-delay="200"
                 data-aos-duration="1500"
               >
-                We Take Care of Your <br /> Technology
+                {quote.titleLine1} <br /> {quote.titleLine2}
               </h2>
             </div>
-            <Link
-              href="contact"
+            <LocalizedLink
+              href="/contact"
               className="btn-one "
               data-aos="fade-up"
               data-aos-delay="200"
               data-aos-duration="1500"
             >
-              get A Quote <i className="fa-regular fa-arrow-right-long"></i>
-            </Link>
+              {quote.cta} <i className="fa-regular fa-arrow-right-long"></i>
+            </LocalizedLink>
           </div>
         </div>
       </div>
