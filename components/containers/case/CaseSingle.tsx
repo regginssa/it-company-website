@@ -15,7 +15,7 @@ const CaseSingle = ({ project }: CaseSingleProps) => {
           <div className="image">
             <Image src={project.image} alt={project.title} priority />
           </div>
-          <h3 className="case-single__title mt-40 mb-30">{project.title}</h3>
+          <h2 className="case-single__title mt-40 mb-30">{project.title}</h2>
           <p>{project.description}</p>
           <ul className="case-date py-4 bor-top bor-bottom mt-40">
             <li>
@@ -28,7 +28,7 @@ const CaseSingle = ({ project }: CaseSingleProps) => {
               <span>Built by:</span> Charlie Unicorn AI
             </li>
           </ul>
-          <h3 className="case-single__title mt-40 mb-30">Key Features</h3>
+          <h2 className="case-single__title mt-40 mb-30">Key Features</h2>
           <div className="case-challenge-list mt-30">
             <ul className="case-challenge">
               {project.highlights.slice(0, 2).map((item) => (
@@ -47,7 +47,7 @@ const CaseSingle = ({ project }: CaseSingleProps) => {
               ))}
             </ul>
           </div>
-          <h3 className="case-single__title mt-40 mb-30">Project Overview</h3>
+          <h2 className="case-single__title mt-40 mb-30">Project Overview</h2>
           <p>{project.summary}</p>
         </div>
       </div>

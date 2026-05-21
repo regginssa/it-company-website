@@ -69,11 +69,11 @@ const Header = () => {
       >
         <div className="container header__container">
           <div className="header__main">
-            <Link href="/" className="logo">
-              <Image src={logo} alt="logo" />
+            <Link href="/" className="logo" aria-label="Charlie Unicorn AI home">
+              <Image src={logo} alt="Charlie Unicorn AI logo" priority />
             </Link>
             <div className="main-menu d-none d-lg-block">
-              <nav>
+              <nav aria-label="Primary navigation">
                 <ul>
                   <li>
                     <Link href="/">Home</Link>
@@ -131,7 +131,12 @@ const Header = () => {
                     <Link href="/contact">Contact</Link>
                   </li>
                   <li className="ml-20 d-none d-lg-block">
-                    <a className="search-trigger" onClick={handleSearch}>
+                    <button
+                      type="button"
+                      className="search-trigger border-0 bg-transparent p-0"
+                      aria-label="Open search"
+                      onClick={handleSearch}
+                    >
                       <svg
                         width="17"
                         height="16"
@@ -151,7 +156,7 @@ const Header = () => {
                           </clipPath>
                         </defs>
                       </svg>
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </nav>
@@ -203,7 +208,11 @@ const Header = () => {
                 </div>
                 <div className="info">
                   <span className="sm-font fw-600 text-white">Call Us Now</span>
-                  <h5 className="text-white">+48 504 412 991</h5>
+                  <p className="text-white mb-0">
+                    <Link className="text-white" href="tel:+48504412991">
+                      +48 504 412 991
+                    </Link>
+                  </p>
                 </div>
               </div>
             </div>

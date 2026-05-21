@@ -1,21 +1,24 @@
-import Header from "@/components/layout/header/Header";
+import type { Metadata } from "next";
+import PageLayout from "@/components/layout/PageLayout";
 import CmnBanner from "@/components/layout/banner/CmnBanner";
 import ContactContent from "@/components/containers/contact/ContactContent";
 import ContactMap from "@/components/containers/contact/ContactMap";
-import Footer from "@/components/layout/footer/Footer";
-import CustomCursor from "@/components/layout/CustomCursor";
-import ScrollProgressButton from "@/components/layout/ScrollProgressButton";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Contact Us",
+  description:
+    "Contact Charlie Unicorn AI to discuss your project or book a consultancy. Email team@charlieunicornai.eu or call +48 504 412 991.",
+  path: "/contact",
+});
 
 const page = () => {
   return (
-    <div>      <Header />
+    <PageLayout>
       <CmnBanner title="Contact Us" />
       <ContactContent />
       <ContactMap />
-      <Footer />
-      <CustomCursor />
-      <ScrollProgressButton />
-    </div>
+    </PageLayout>
   );
 };
 

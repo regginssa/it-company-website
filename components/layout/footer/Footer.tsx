@@ -53,8 +53,8 @@ const Footer = () => {
             data-aos-delay="0"
             data-aos-duration="1500"
           >
-            <Link href="/" className="logo mb-30">
-              <Image src={Logo} alt="Image" priority />
+            <Link href="/" className="logo mb-30" aria-label="Charlie Unicorn AI home">
+              <Image src={Logo} alt="Charlie Unicorn AI logo" priority />
             </Link>
             <p>
               Charlie Unicorn AI is a software studio specializing in web and
@@ -160,20 +160,26 @@ const Footer = () => {
             data-aos-duration="1500"
           >
             <h3 className="footer-title">Contact Us</h3>
-            <p className="mb-20">Kasztanowa Street 17/1, Manowo, Poland</p>
+            <address className="mb-20">
+              Kasztanowa Street 17/1
+              <br />
+              76-015 Manowo, Poland
+            </address>
             <ul className="footer-contact">
               <li>
-                <i className="fa-regular fa-clock"></i>
+                <i className="fa-regular fa-clock" aria-hidden="true"></i>
                 <div className="info">
-                  <h5>Opening Hours:</h5>
+                  <p className="fw-600 mb-1">Opening Hours:</p>
                   <p>Mon - Fri: 9.00 AM - 5.00 PM</p>
                 </div>
               </li>
               <li>
-                <i className="fa-duotone fa-phone"></i>
+                <i className="fa-duotone fa-phone" aria-hidden="true"></i>
                 <div className="info">
-                  <h5>Phone Call:</h5>
-                  <p>+48 504 412 991</p>
+                  <p className="fw-600 mb-1">Phone:</p>
+                  <p>
+                    <Link href="tel:+48504412991">+48 504 412 991</Link>
+                  </p>
                 </div>
               </li>
             </ul>
@@ -184,8 +190,8 @@ const Footer = () => {
         <div className="container">
           <div className="d-flex gap-1 flex-wrap align-items-center justify-content-md-between justify-content-center">
             <p data-aos="fade-down" data-aos-delay="0" data-aos-duration="1500">
-              &copy; All Copyright 2024 by{" "}
-              <Link href="/">Charlie Unicorn AI</Link>
+              &copy; {new Date().getFullYear()} Charlie Unicorn AI. All rights
+              reserved.{" "}
             </p>
           </div>
         </div>

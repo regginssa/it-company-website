@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Charlie Unicorn AI — Company Website
 
-## Getting Started
+Marketing site for **Charlie Unicorn AI**, a software studio offering web development, mobile apps, blockchain, AI solutions, Unreal Engine 5 game development, and IT consultancy. Built with **Next.js 14** (App Router), React 18, and TypeScript.
 
-First, run the development server:
+## Features
+
+- Theme 2 layout (home, about, services, portfolio, FAQ, contact)
+- Dynamic service pages (`/service-details/[slug]`) and portfolio case studies (`/case-details/[slug]`)
+- Contact form API with [Resend](https://resend.com) (`/api/contact`)
+- SEO: per-page metadata, canonical URLs, Open Graph, Twitter cards, `robots.txt`, `sitemap.xml`, JSON-LD (Organization + WebSite)
+- Semantic HTML: `<main>`, one `<h1>` per page, breadcrumb `<nav>`, `<address>`, accessible controls
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Copy `.env.example` to `.env.local` and set:
 
-## Learn More
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_SITE_URL` | Public site URL (e.g. `https://charlieunicornai.eu`) — used for canonical links, sitemap, and Open Graph |
+| `RESEND_API_KEY` | Resend API key for the contact form |
+| `CONTACT_TO_EMAIL` | Inbox for form submissions |
+| `CONTACT_FROM_EMAIL` | Verified sender address in Resend |
 
-To learn more about Next.js, take a look at the following resources:
+## SEO
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Shared config: [`lib/seo.ts`](lib/seo.ts)
+- Sitemap: [`app/sitemap.ts`](app/sitemap.ts) — lists main routes, all services, and portfolio cases
+- Robots: [`app/robots.ts`](app/robots.ts) — allows crawling; blocks `/api/`
+- Layout JSON-LD: Organization and WebSite schemas in [`app/layout.tsx`](app/layout.tsx)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+After deploy, set `NEXT_PUBLIC_SITE_URL` to your production domain and submit `https://your-domain.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev    # development server
+npm run build  # production build
+npm run start  # run production build
+npm run lint   # ESLint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Project structure
+
+```
+app/                 # Routes and API
+components/          # UI (layout, home sections, contact, etc.)
+data/                # services.ts, portfolioCases.ts, testimonials.ts
+lib/seo.ts           # Site metadata and JSON-LD helpers
+public/              # Images and global SCSS
+```
+
+## Deploy
+
+Deploy on [Vercel](https://vercel.com) or any Node host that supports Next.js 14. Set environment variables in the hosting dashboard before going live.
+
+## License
+
+Private — Charlie Unicorn AI.

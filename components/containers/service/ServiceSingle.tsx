@@ -21,7 +21,7 @@ const ServiceSingle = ({ service }: ServiceSingleProps) => {
               <div className="image mb-50">
                 <Image src={service.image} alt={service.title} priority />
               </div>
-              <h3 className="title mb-30">{service.title}</h3>
+              <h2 className="title mb-30">{service.title}</h2>
               <p className="mb-20">{service.description}</p>
               <p>{service.descriptionExtra}</p>
               <div className="row g-5 mt-40 mb-40 align-items-center">
@@ -62,7 +62,7 @@ const ServiceSingle = ({ service }: ServiceSingleProps) => {
                     data-aos-delay={index * 200}
                     data-aos-duration="1500"
                   >
-                    <h2 className="accordion-header" id={`heading-${index}`}>
+                    <h3 className="accordion-header" id={`heading-${index}`}>
                       <button
                         type="button"
                         data-bs-toggle="collapse"
@@ -79,7 +79,7 @@ const ServiceSingle = ({ service }: ServiceSingleProps) => {
                       >
                         {faq.question}
                       </button>
-                    </h2>
+                    </h3>
                     <div
                       id={`collapse-${index}`}
                       className={`accordion-collapse collapse${

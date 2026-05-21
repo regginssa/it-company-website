@@ -40,10 +40,18 @@ const About = () => {
                 />
               </div>
               <div className="image big-image">
-                <Image src={Four} alt="Image" priority />
+                <Image
+                  src={Four}
+                  alt="Charlie Unicorn AI team at work"
+                  priority
+                />
               </div>
               <div className="image sm-image">
-                <Image src={Five} alt="Image" priority />
+                <Image
+                  src={Five}
+                  alt="Software development collaboration"
+                  priority
+                />
               </div>
               <div className="circle-shape">
                 <Image

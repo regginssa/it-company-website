@@ -1,20 +1,22 @@
-import Header from "@/components/layout/header/Header";
+import type { Metadata } from "next";
+import PageLayout from "@/components/layout/PageLayout";
 import CmnBanner from "@/components/layout/banner/CmnBanner";
 import Faq from "@/components/containers/Home/Faq";
-import Footer from "@/components/layout/footer/Footer";
-import CustomCursor from "@/components/layout/CustomCursor";
-import ScrollProgressButton from "@/components/layout/ScrollProgressButton";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "FAQ",
+  description:
+    "Frequently asked questions about Charlie Unicorn AI services, consultancy bookings, and how we work with clients.",
+  path: "/faq",
+});
 
 const page = () => {
   return (
-    <div>
-      <Header />
+    <PageLayout>
       <CmnBanner title="FAQ" />
       <Faq />
-      <Footer />
-      <CustomCursor />
-      <ScrollProgressButton />
-    </div>
+    </PageLayout>
   );
 };
 

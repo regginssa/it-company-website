@@ -1,20 +1,22 @@
-import Header from "@/components/layout/header/Header";
+import type { Metadata } from "next";
+import PageLayout from "@/components/layout/PageLayout";
 import CmnBanner from "@/components/layout/banner/CmnBanner";
 import CaseItems from "@/components/containers/case/CaseItems";
-import Footer from "@/components/layout/footer/Footer";
-import CustomCursor from "@/components/layout/CustomCursor";
-import ScrollProgressButton from "@/components/layout/ScrollProgressButton";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Portfolio",
+  description:
+    "Case studies from Charlie Unicorn AI: NFT marketplace, EventWorld, Unicorn Racing Game (UE5), and BabyU AI.",
+  path: "/case",
+});
 
 const page = () => {
   return (
-    <div>
-      <Header />
+    <PageLayout>
       <CmnBanner title="Our Portfolio" />
       <CaseItems />
-      <Footer />
-      <CustomCursor />
-      <ScrollProgressButton />
-    </div>
+    </PageLayout>
   );
 };
 

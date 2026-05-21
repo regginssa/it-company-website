@@ -1,14 +1,10 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Header from "@/components/layout/header/Header";
+import PageLayout from "@/components/layout/PageLayout";
 import CmnBanner from "@/components/layout/banner/CmnBanner";
 import CaseSingle from "@/components/containers/case/CaseSingle";
-import Footer from "@/components/layout/footer/Footer";
-import CustomCursor from "@/components/layout/CustomCursor";
-import ScrollProgressButton from "@/components/layout/ScrollProgressButton";
-import {
-  getPortfolioCase,
-  portfolioCases,
-} from "@/data/portfolioCases";
+import { getPortfolioCase, portfolioCases } from "@/data/portfolioCases";
+import { createPageMetadata } from "@/lib/seo";
 
 type PageProps = {
   params: { slug: string };
@@ -20,6 +16,20 @@ export function generateStaticParams() {
   }));
 }
 
+export function generateMetadata({ params }: PageProps): Metadata {
+  const project = getPortfolioCase(params.slug);
+
+  if (!project) {
+    return {};
+  }
+
+  return createPageMetadata({
+    title: project.title,
+    description: project.summary,
+    path: `/case-details/${project.slug}`,
+  });
+}
+
 const page = ({ params }: PageProps) => {
   const project = getPortfolioCase(params.slug);
 
@@ -28,14 +38,10 @@ const page = ({ params }: PageProps) => {
   }
 
   return (
-    <div>
-      <Header />
+    <PageLayout>
       <CmnBanner title={project.title} />
       <CaseSingle project={project} />
-      <Footer />
-      <CustomCursor />
-      <ScrollProgressButton />
-    </div>
+    </PageLayout>
   );
 };
 

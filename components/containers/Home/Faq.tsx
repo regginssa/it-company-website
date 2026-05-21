@@ -81,7 +81,7 @@ const Faq = () => {
                   data-aos-delay="0"
                   data-aos-duration="1500"
                 >
-                  <h2 className="accordion-header" id="headingOne">
+                  <h3 className="accordion-header" id="headingOne">
                     <button
                       type="button"
                       data-bs-toggle="collapse"
@@ -96,7 +96,7 @@ const Faq = () => {
                     >
                       What services does Charlie Unicorn AI offer?
                     </button>
-                  </h2>
+                  </h3>
                   <div
                     id="collapseOne"
                     className={`accordion-collapse collapse${
@@ -122,7 +122,7 @@ const Faq = () => {
                   data-aos-delay="200"
                   data-aos-duration="1500"
                 >
-                  <h2 className="accordion-header" id="headingTwo">
+                  <h3 className="accordion-header" id="headingTwo">
                     <button
                       className={
                         (imgTab == 1 ? "  " : " collapsed") +
@@ -137,7 +137,7 @@ const Faq = () => {
                     >
                       How can I book a consultancy or get in touch?
                     </button>
-                  </h2>
+                  </h3>
                   <div
                     id="collapseTwo"
                     className={`accordion-collapse collapse${
@@ -162,7 +162,7 @@ const Faq = () => {
                   data-aos-delay="400"
                   data-aos-duration="1500"
                 >
-                  <h2 className="accordion-header" id="headingthree">
+                  <h3 className="accordion-header" id="headingthree">
                     <button
                       className={
                         (imgTab == 2 ? "  " : " collapsed") +
@@ -177,7 +177,7 @@ const Faq = () => {
                     >
                       What happens after I contact you?
                     </button>
-                  </h2>
+                  </h3>
                   <div
                     id="collapsethree"
                     className={`accordion-collapse collapse${
@@ -202,7 +202,7 @@ const Faq = () => {
                   data-aos-delay="600"
                   data-aos-duration="1500"
                 >
-                  <h2 className="accordion-header" id="headingFour">
+                  <h3 className="accordion-header" id="headingFour">
                     <button
                       className={
                         (imgTab == 3 ? "  " : " collapsed") +
@@ -217,7 +217,7 @@ const Faq = () => {
                     >
                       Who do you typically work with?
                     </button>
-                  </h2>
+                  </h3>
                   <div
                     id="collapseFour"
                     className={`accordion-collapse collapse${

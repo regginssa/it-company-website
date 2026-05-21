@@ -1,11 +1,10 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Header from "@/components/layout/header/Header";
+import PageLayout from "@/components/layout/PageLayout";
 import CmnBanner from "@/components/layout/banner/CmnBanner";
 import ServiceSingle from "@/components/containers/service/ServiceSingle";
-import Footer from "@/components/layout/footer/Footer";
-import CustomCursor from "@/components/layout/CustomCursor";
-import ScrollProgressButton from "@/components/layout/ScrollProgressButton";
 import { getService, services } from "@/data/services";
+import { createPageMetadata } from "@/lib/seo";
 
 type PageProps = {
   params: { slug: string };
@@ -17,6 +16,20 @@ export function generateStaticParams() {
   }));
 }
 
+export function generateMetadata({ params }: PageProps): Metadata {
+  const service = getService(params.slug);
+
+  if (!service) {
+    return {};
+  }
+
+  return createPageMetadata({
+    title: service.title,
+    description: service.summary,
+    path: `/service-details/${service.slug}`,
+  });
+}
+
 const page = ({ params }: PageProps) => {
   const service = getService(params.slug);
 
@@ -25,14 +38,10 @@ const page = ({ params }: PageProps) => {
   }
 
   return (
-    <div>
-      <Header />
+    <PageLayout>
       <CmnBanner title={service.title} />
       <ServiceSingle service={service} />
-      <Footer />
-      <CustomCursor />
-      <ScrollProgressButton />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
 import "@/public/styles/style.scss";
 import InitAnimations from "@/components/layout/InitAnimations";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  createPageMetadata,
+  organizationJsonLd,
+  siteConfig,
+  webSiteJsonLd,
+} from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Charlie Unicorn AI | Software Development & IT Solutions",
-  description:
-    "Charlie Unicorn AI — Web development, mobile apps, blockchain, and Unreal Engine 5 game development.",
-  keywords: [
-    "Charlie Unicorn AI",
-    "Web Development",
-    "Mobile App Development",
-    "Blockchain Development",
-    "Unreal Engine 5",
-    "Game Development",
-    "IT Solutions",
-  ],
+  metadataBase: new URL(siteConfig.url),
+  ...createPageMetadata({
+    title: siteConfig.name,
+    description: siteConfig.description,
+    path: "",
+  }),
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
@@ -25,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <JsonLd data={[organizationJsonLd(), webSiteJsonLd()]} />
         {children}
         <InitAnimations />
       </body>

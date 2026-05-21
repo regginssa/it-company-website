@@ -23,13 +23,14 @@ const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: any) => {
   };
 
   return (
-    <div
+    <aside
       id="targetElement"
       className={(toggleMenu ? " " : " sidebar__hide") + " sidebar-area"}
+      aria-label="Mobile navigation"
     >
       <div className="sidebar__overlay"></div>
-      <Link href="/" className="logo mb-40">
-        <Image src={svgLogo} alt="logo" />
+      <Link href="/" className="logo mb-40" aria-label="Charlie Unicorn AI home">
+        <Image src={svgLogo} alt="Charlie Unicorn AI logo" priority />
       </Link>
       <div className="sidebar__search mb-30">
         <input type="text" placeholder="Search..." />
@@ -154,7 +155,7 @@ const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: any) => {
       >
         <i className="fa-solid fa-xmark"></i>
       </button>
-    </div>
+    </aside>
   );
 };
 
