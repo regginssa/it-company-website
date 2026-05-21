@@ -5,7 +5,7 @@ import ModalVideo from "react-modal-video";
 import One from "@/public/images/shape/choose-shape-right.png";
 import Two from "@/public/images/shape/choose-shape-right2.png";
 import Three from "@/public/images/shape/choose-shape-left.png";
-import Four from "@/public/images/choose/choose-image1.png";
+import Four from "@/public/images/choose/choose-image1.webp";
 import Five from "@/public/images/icon/about-icon1.png";
 import Six from "@/public/images/icon/about-icon2.png";
 

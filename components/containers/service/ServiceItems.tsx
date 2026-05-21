@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import One from "@/public/images/shape/service-two-item-shape.png";
-import Two from "@/public/images/service/service-image1.jpg";
-import Three from "@/public/images/service/service-image2.jpg";
-import Four from "@/public/images/service/service-image3.jpg";
-import Five from "@/public/images/service/service-image4.jpg";
-import Six from "@/public/images/service/service-image5.jpg";
-import Seven from "@/public/images/service/service-image6.jpg";
+import Two from "@/public/images/service/service-image1.webp";
+import Three from "@/public/images/service/service-image2.webp";
+import Four from "@/public/images/service/service-image3.webp";
+import Five from "@/public/images/service/service-image4.webp";
+import Six from "@/public/images/service/service-image5.webp";
+import Seven from "@/public/images/service/service-image6.webp";
 import Eight from "@/public/images/icon/service-two-icon1.png";
 import Nine from "@/public/images/icon/service-two-icon2.png";
 import Ten from "@/public/images/icon/service-two-icon3.png";
@@ -33,12 +33,13 @@ const ServiceItems = () => {
                 </div>
                 <h4>
                   <Link href="service-details" className="primary-hover">
-                    Database Security
+                    Web Development
                   </Link>
                 </h4>
                 <p>
-                  Pellentesque nec the condimentum nec lorem nulla augue est
-                  ultricies ac iaculis.
+                  Fast, responsive websites and web apps built with modern
+                  frameworks, secure APIs, and SEO-ready architecture for your
+                  business.
                 </p>
                 <Link className="read-more-btn" href="service-details">
                   Read More <i className="fa-regular fa-arrow-right-long"></i>
@@ -60,12 +61,12 @@ const ServiceItems = () => {
                 </div>
                 <h4>
                   <Link href="service-details" className="primary-hover">
-                    IT Consultancy
+                    Mobile App Development
                   </Link>
                 </h4>
                 <p>
-                  Pellentesque nec the condimentum nec lorem nulla augue est
-                  ultricies ac iaculis.
+                  Native and cross-platform iOS and Android applications
+                  engineered for performance, usability, and scalable growth.
                 </p>
                 <Link className="read-more-btn" href="service-details">
                   Read More <i className="fa-regular fa-arrow-right-long"></i>
@@ -87,12 +88,12 @@ const ServiceItems = () => {
                 </div>
                 <h4>
                   <Link href="service-details" className="primary-hover">
-                    App Development
+                    Blockchain Development
                   </Link>
                 </h4>
                 <p>
-                  Pellentesque nec the condimentum nec lorem nulla augue est
-                  ultricies ac iaculis.
+                  Smart contracts, dApps, wallets, and blockchain integrations
+                  delivered with security-first design and auditable code.
                 </p>
                 <Link className="read-more-btn" href="service-details">
                   Read More <i className="fa-regular fa-arrow-right-long"></i>
@@ -114,12 +115,13 @@ const ServiceItems = () => {
                 </div>
                 <h4>
                   <Link href="service-details" className="primary-hover">
-                    Cyber Security
+                    Unreal Engine 5 Game Development
                   </Link>
                 </h4>
                 <p>
-                  Pellentesque nec the condimentum nec lorem nulla augue est
-                  ultricies ac iaculis.
+                  Immersive games and interactive experiences with UE5—high
+                  fidelity visuals, multiplayer systems, and cross-platform
+                  launch support.
                 </p>
                 <Link className="read-more-btn" href="service-details">
                   Read More <i className="fa-regular fa-arrow-right-long"></i>
@@ -141,12 +143,13 @@ const ServiceItems = () => {
                 </div>
                 <h4>
                   <Link href="service-details" className="primary-hover">
-                    UI/UX Design
+                    AI Development
                   </Link>
                 </h4>
                 <p>
-                  Pellentesque nec the condimentum nec lorem nulla augue est
-                  ultricies ac iaculis.
+                  Custom AI models, LLM integrations, and intelligent
+                  automation that enhance products with machine learning and
+                  generative AI.
                 </p>
                 <Link className="read-more-btn" href="service-details">
                   Read More <i className="fa-regular fa-arrow-right-long"></i>
@@ -168,12 +171,12 @@ const ServiceItems = () => {
                 </div>
                 <h4>
                   <Link href="service-details" className="primary-hover">
-                    IT Management
+                    IT Consultancy
                   </Link>
                 </h4>
                 <p>
-                  Pellentesque nec the condimentum nec lorem nulla augue est
-                  ultricies ac iaculis.
+                  Technology strategy, architecture guidance, and product
+                  roadmaps to help you ship faster with the right stack.
                 </p>
                 <Link className="read-more-btn" href="service-details">
                   Read More <i className="fa-regular fa-arrow-right-long"></i>

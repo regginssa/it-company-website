@@ -6,13 +6,19 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import One from "@/public/images/shape/service-two-shape-left.png";
 import Two from "@/public/images/shape/service-two-shape-right.png";
-import Three from "@/public/images/service/service-image1.jpg";
+import Three from "@/public/images/service/service-image1.webp";
 import Four from "@/public/images/icon/service-two-icon1.png";
 import Five from "@/public/images/shape/service-two-item-shape.png";
-import Six from "@/public/images/service/service-image2.jpg";
+import Six from "@/public/images/service/service-image2.webp";
 import Seven from "@/public/images/icon/service-two-icon2.png";
-import Eight from "@/public/images/service/service-image3.jpg";
+import Eight from "@/public/images/service/service-image3.webp";
 import Nine from "@/public/images/icon/service-two-icon3.png";
+import Ten from "@/public/images/service/service-image4.webp";
+import Eleven from "@/public/images/icon/service-two-icon4.png";
+import Twelve from "@/public/images/service/service-image5.webp";
+import Thirteen from "@/public/images/icon/service-two-icon5.png";
+import Fourteen from "@/public/images/service/service-image6.webp";
+import Fifteen from "@/public/images/icon/service-two-icon6.png";
 
 const Service = () => {
   return (
@@ -68,7 +74,7 @@ const Service = () => {
               data-aos-delay="200"
               data-aos-duration="1500"
             >
-              Exclusive IT Services
+              Our Core Development Services
             </h2>
           </div>
           <div
@@ -129,12 +135,13 @@ const Service = () => {
                     </div>
                     <h4>
                       <Link href="service-details" className="primary-hover">
-                        Database Security
+                        Web Development
                       </Link>
                     </h4>
                     <p>
-                      Pellentesque nec the condimentum nec lorem nulla augue est
-                      ultricies ac iaculis.
+                      Fast, responsive websites and web apps built with modern
+                      frameworks, secure APIs, and SEO-ready architecture for
+                      your business.
                     </p>
                     <Link className="read-more-btn" href="service-details">
                       Read More{" "}
@@ -159,12 +166,13 @@ const Service = () => {
                     </div>
                     <h4>
                       <Link href="service-details" className="primary-hover">
-                        IT Consultancy
+                        Mobile App Development
                       </Link>
                     </h4>
                     <p>
-                      Pellentesque nec the condimentum nec lorem nulla augue est
-                      ultricies ac iaculis.
+                      Native and cross-platform iOS and Android applications
+                      engineered for performance, usability, and scalable
+                      growth.
                     </p>
                     <Link className="read-more-btn" href="service-details">
                       Read More{" "}
@@ -189,12 +197,12 @@ const Service = () => {
                     </div>
                     <h4>
                       <Link href="service-details" className="primary-hover">
-                        App Development
+                        Blockchain Development
                       </Link>
                     </h4>
                     <p>
-                      Pellentesque nec the condimentum nec lorem nulla augue est
-                      ultricies ac iaculis.
+                      Smart contracts, dApps, wallets, and blockchain integrations
+                      delivered with security-first design and auditable code.
                     </p>
                     <Link className="read-more-btn" href="service-details">
                       Read More{" "}
@@ -208,23 +216,24 @@ const Service = () => {
               <div className="swiper-slide">
                 <div className="service-two__item">
                   <div className="image">
-                    <Image src={Three} alt="Image" priority />
+                    <Image src={Ten} alt="Image" priority />
                   </div>
                   <div className="service-two__content">
                     <div className="icon">
-                      <Image src={Four} alt="icon" priority />
+                      <Image src={Eleven} alt="icon" priority />
                     </div>
                     <div className="shape">
                       <Image src={Five} alt="shape" priority />
                     </div>
                     <h4>
                       <Link href="service-details" className="primary-hover">
-                        Database Security
+                        Unreal Engine 5 Game Development
                       </Link>
                     </h4>
                     <p>
-                      Pellentesque nec the condimentum nec lorem nulla augue est
-                      ultricies ac iaculis.
+                      Immersive games and interactive experiences with UE5—high
+                      fidelity visuals, multiplayer systems, and cross-platform
+                      launch support.
                     </p>
                     <Link className="read-more-btn" href="service-details">
                       Read More{" "}
@@ -238,11 +247,42 @@ const Service = () => {
               <div className="swiper-slide">
                 <div className="service-two__item">
                   <div className="image">
-                    <Image src={Six} alt="Image" priority />
+                    <Image src={Twelve} alt="Image" priority />
                   </div>
                   <div className="service-two__content">
                     <div className="icon">
-                      <Image src={Seven} alt="icon" priority />
+                      <Image src={Thirteen} alt="icon" priority />
+                    </div>
+                    <div className="shape">
+                      <Image src={Five} alt="shape" priority />
+                    </div>
+                    <h4>
+                      <Link href="service-details" className="primary-hover">
+                        AI Development
+                      </Link>
+                    </h4>
+                    <p>
+                      Custom AI models, LLM integrations, and intelligent
+                      automation that enhance products with machine learning and
+                      generative AI.
+                    </p>
+                    <Link className="read-more-btn" href="service-details">
+                      Read More{" "}
+                      <i className="fa-regular fa-arrow-right-long"></i>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="swiper-slide">
+                <div className="service-two__item">
+                  <div className="image">
+                    <Image src={Fourteen} alt="Image" priority />
+                  </div>
+                  <div className="service-two__content">
+                    <div className="icon">
+                      <Image src={Fifteen} alt="icon" priority />
                     </div>
                     <div className="shape">
                       <Image src={Five} alt="shape" priority />
@@ -253,38 +293,8 @@ const Service = () => {
                       </Link>
                     </h4>
                     <p>
-                      Pellentesque nec the condimentum nec lorem nulla augue est
-                      ultricies ac iaculis.
-                    </p>
-                    <Link className="read-more-btn" href="service-details">
-                      Read More{" "}
-                      <i className="fa-regular fa-arrow-right-long"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide">
-                <div className="service-two__item">
-                  <div className="image">
-                    <Image src={Eight} alt="Image" priority />
-                  </div>
-                  <div className="service-two__content">
-                    <div className="icon">
-                      <Image src={Nine} alt="icon" priority />
-                    </div>
-                    <div className="shape">
-                      <Image src={Five} alt="shape" priority />
-                    </div>
-                    <h4>
-                      <Link href="service-details" className="primary-hover">
-                        App Development
-                      </Link>
-                    </h4>
-                    <p>
-                      Pellentesque nec the condimentum nec lorem nulla augue est
-                      ultricies ac iaculis.
+                      Technology strategy, architecture guidance, and product
+                      roadmaps to help you ship faster with the right stack.
                     </p>
                     <Link className="read-more-btn" href="service-details">
                       Read More{" "}

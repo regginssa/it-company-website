@@ -3,8 +3,8 @@ import Image from "next/image";
 import One from "@/public/images/shape/about-two-shape.png";
 import Two from "@/public/images/shape/about-two-dot.png";
 import Three from "@/public/images/shape/about-circle-helper.png";
-import Four from "@/public/images/about/about-two-image1.jpg";
-import Five from "@/public/images/about/about-two-image2.png";
+import Four from "@/public/images/about/about-two-image1.png";
+import Five from "@/public/images/about/about-two-image2.webp";
 import Six from "@/public/images/shape/about-two-circle.png";
 import Seven from "@/public/images/about/singature.png";
 
@@ -105,10 +105,11 @@ const About = () => {
                 data-aos-delay="400"
                 data-aos-duration="1500"
               >
-                Aonsectetur adipiscing elit aenean scelerisque augue vitae
-                consequat aisque eget congue velit in cursus sodales the turpis
-                euismod quis sapien euismod quis sapien the condimentum nec
-                lorem nulla augue.
+                Charlie Unicorn AI is a full-stack software studio specializing
+                in web development, mobile applications, blockchain platforms,
+                and Unreal Engine 5 game development. We partner with startups
+                and enterprises to deliver secure, scalable solutions—from
+                concept and architecture through launch and long-term support.
               </p>
             </div>
             <div

@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import One from "@/public/images/shape/faq-shape.png";
 import Two from "@/public/images/shape/faq-line.png";
-import Three from "@/public/images/faq/faq-image.png";
+import Three from "@/public/images/faq/faq-image.webp";
 
 const Faq = () => {
   const [imgTab, setImgTab] = useState(0);
@@ -70,7 +70,7 @@ const Faq = () => {
                 data-aos-delay="200"
                 data-aos-duration="1500"
               >
-                Most Common Question?
+                Frequently Asked Questions
               </h2>
             </div>
             <div className="faq__item">
@@ -94,7 +94,7 @@ const Faq = () => {
                       }
                       onClick={() => setImgTab(imgTab === 0 ? -1 : 0)}
                     >
-                      Where should I incorporate my business?
+                      What services does Charlie Unicorn AI offer?
                     </button>
                   </h2>
                   <div
@@ -107,11 +107,11 @@ const Faq = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        It is a long established fact that a reader be
-                        distracted by the readable content of a page when
-                        looking a its layout. Many desktop publishing packages
-                        and web page editors now use Lorem Ipsum publishing
-                        packages and web page editors now use Lorem Ipsum
+                        We specialize in web development, mobile app
+                        development, blockchain solutions, Unreal Engine 5 game
+                        development, AI development, and IT consultancy. Visit
+                        our Services page to learn more, or contact us to
+                        discuss your project.
                       </p>
                     </div>
                   </div>
@@ -135,7 +135,7 @@ const Faq = () => {
                       aria-expanded="false"
                       aria-controls="collapseTwo"
                     >
-                      What happens my free trial?
+                      How can I book a consultancy or get in touch?
                     </button>
                   </h2>
                   <div
@@ -148,11 +148,10 @@ const Faq = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        It is a long established fact that a reader be
-                        distracted by the readable content of a page when
-                        looking a its layout. Many desktop publishing packages
-                        and web page editors now use Lorem Ipsum publishing
-                        packages and web page editors now use Lorem Ipsum
+                        Use our Contact page to send a message or request a
+                        consultation. Tell us about your goals, timeline, and
+                        requirements—we will respond promptly to schedule a
+                        call and explore how we can help.
                       </p>
                     </div>
                   </div>
@@ -176,7 +175,7 @@ const Faq = () => {
                       aria-expanded="false"
                       aria-controls="collapsethree"
                     >
-                      What is included in your services?
+                      What happens after I contact you?
                     </button>
                   </h2>
                   <div
@@ -189,11 +188,10 @@ const Faq = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        It is a long established fact that a reader be
-                        distracted by the readable content of a page when
-                        looking a its layout. Many desktop publishing packages
-                        and web page editors now use Lorem Ipsum publishing
-                        packages and web page editors now use Lorem Ipsum
+                        We review your brief, ask clarifying questions, and
+                        propose a tailored approach—scope, technology stack, and
+                        next steps. There is no online checkout or pricing on
+                        this site; every engagement starts with a conversation.
                       </p>
                     </div>
                   </div>
@@ -217,7 +215,7 @@ const Faq = () => {
                       aria-expanded="false"
                       aria-controls="collapseFour"
                     >
-                      What type of company is measured?
+                      Who do you typically work with?
                     </button>
                   </h2>
                   <div
@@ -230,11 +228,11 @@ const Faq = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        It is a long established fact that a reader be
-                        distracted by the readable content of a page when
-                        looking a its layout. Many desktop publishing packages
-                        and web page editors now use Lorem Ipsum publishing
-                        packages and web page editors now use Lorem Ipsum
+                        We partner with startups, growing businesses, and
+                        enterprises that need a reliable software team for web,
+                        mobile, blockchain, games, or AI projects. Whether you
+                        need a full build or expert guidance, we are here to
+                        help.
                       </p>
                     </div>
                   </div>
