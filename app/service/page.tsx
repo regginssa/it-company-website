@@ -7,7 +7,8 @@ import ScrollProgressButton from "@/components/layout/ScrollProgressButton";
 
 const page = () => {
   return (
-    <div>      <Header />
+    <div>
+      <Header />
       <CmnBanner title="IT Services" />
       <ServiceItems />
       <Footer />

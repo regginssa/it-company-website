@@ -16,7 +16,7 @@ const page = () => {
       <ServiceAlter />
       <About />
       <ChooseArea />
-      <Team />
+      {/* <Team /> */}
       <Footer />
       <CustomCursor />
       <ScrollProgressButton />

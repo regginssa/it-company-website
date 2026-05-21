@@ -7,6 +7,10 @@ import Three from "@/public/images/shape/service-item-shape.png";
 import Four from "@/public/images/icon/service-icon1.png";
 import Five from "@/public/images/icon/service-icon2.png";
 import Six from "@/public/images/icon/service-icon3.png";
+import { services } from "@/data/services";
+
+const alterIcons = [Four, Five, Six];
+const alterServices = services.slice(0, 3);
 
 const ServiceAlter = () => {
   const [isOverviewOpen, setOverviewOpen] = useState(1);
@@ -18,90 +22,37 @@ const ServiceAlter = () => {
       </div>
       <div className="container">
         <div className="row g-4">
-          <div
-            className="col-lg-4 col-md-6 "
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-delay="0"
-            data-aos-duration="1000"
-          >
+          {alterServices.map((service, index) => (
             <div
-              className={
-                "service__item " + (isOverviewOpen === 0 ? " active" : " ")
-              }
-              onMouseEnter={() => setOverviewOpen(0)}
+              key={service.slug}
+              className="col-lg-4 col-md-6 "
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-bottom"
+              data-aos-delay={index * 200}
+              data-aos-duration="1000"
             >
-              <div className="service-shape">
-                <Image src={Three} alt="shape" priority />
+              <div
+                className={
+                  "service__item " +
+                  (isOverviewOpen === index ? " active" : " ")
+                }
+                onMouseEnter={() => setOverviewOpen(index)}
+              >
+                <div className="service-shape">
+                  <Image src={Three} alt="shape" priority />
+                </div>
+                <div className="service__icon">
+                  <Image src={alterIcons[index]} alt="icon" priority />
+                </div>
+                <h4>
+                  <Link href={`/service-details/${service.slug}`}>
+                    {service.title}
+                  </Link>
+                </h4>
+                <p>{service.summary}</p>
               </div>
-              <div className="service__icon">
-                <Image src={Four} alt="icon" priority />
-              </div>
-              <h4>
-                <Link href="service-details">IT Management</Link>
-              </h4>
-              <p>
-                Pellentesque nec the condimentum nec lorem nulla augue est
-                ultricies ac iaculis ut euismod quis sapien.
-              </p>
             </div>
-          </div>
-          <div
-            className="col-lg-4 col-md-6 "
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-delay="200"
-            data-aos-duration="1000"
-          >
-            <div
-              className={
-                "service__item " + (isOverviewOpen === 1 ? " active" : " ")
-              }
-              onMouseEnter={() => setOverviewOpen(1)}
-            >
-              <div className="service-shape">
-                <Image src={Three} alt="shape" priority />
-              </div>
-              <div className="service__icon">
-                <Image src={Five} alt="icon" priority />
-              </div>
-              <h4>
-                <Link href="service-details">Cyber Security</Link>
-              </h4>
-              <p>
-                Pellentesque nec the condimentum nec lorem nulla augue est
-                ultricies ac iaculis ut euismod quis sapien.
-              </p>
-            </div>
-          </div>
-          <div
-            className="col-lg-4 col-md-6 "
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-delay="400"
-            data-aos-duration="1000"
-          >
-            <div
-              className={
-                "service__item " + (isOverviewOpen === 2 ? " active" : " ")
-              }
-              onMouseEnter={() => setOverviewOpen(2)}
-            >
-              <div className="service-shape">
-                <Image src={Three} alt="shape" priority />
-              </div>
-              <div className="service__icon">
-                <Image src={Six} alt="icon" priority />
-              </div>
-              <h4>
-                <Link href="service-details">Web Development</Link>
-              </h4>
-              <p>
-                Pellentesque nec the condimentum nec lorem nulla augue est
-                ultricies ac iaculis ut euismod quis sapien.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

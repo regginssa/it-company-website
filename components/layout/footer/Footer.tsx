@@ -57,8 +57,9 @@ const Footer = () => {
               <Image src={Logo} alt="Image" priority />
             </Link>
             <p>
-              Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a
-              lacinia curabitur lacinia mollis
+              Charlie Unicorn AI is a software studio specializing in web and
+              mobile development, blockchain, AI solutions, and Unreal Engine 5
+              games. Contact us to discuss your project or book a consultancy.
             </p>
             <div className="social-icon">
               <Link href="/">
@@ -75,7 +76,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div
+          {/* <div
             className="footer__item item-sm "
             data-aos="fade-up"
             data-aos-delay="200"
@@ -114,7 +115,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
           <div
             className="footer__item item-sm "
             data-aos="fade-up"
@@ -125,8 +126,7 @@ const Footer = () => {
             <ul>
               <li>
                 <Link href="about">
-                  <i className="fa-regular fa-angles-right me-1"></i> About
-                  Gratech
+                  <i className="fa-regular fa-angles-right me-1"></i> About Us
                 </Link>
               </li>
               <li>
@@ -136,20 +136,19 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="pricing">
-                  <i className="fa-regular fa-angles-right me-1"></i> Pricing
-                  Plan
-                </Link>
-              </li>
-              <li>
                 <Link href="case">
                   <i className="fa-regular fa-angles-right me-1"></i> Our
-                  Projects
+                  Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="team">
-                  <i className="fa-regular fa-angles-right me-1"></i> Our Team
+                <Link href="contact">
+                  <i className="fa-regular fa-angles-right me-1"></i> Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="faq">
+                  <i className="fa-regular fa-angles-right me-1"></i> FAQ
                 </Link>
               </li>
             </ul>
@@ -161,22 +160,20 @@ const Footer = () => {
             data-aos-duration="1500"
           >
             <h3 className="footer-title">Contact Us</h3>
-            <p className="mb-20">
-              4517 Washington Ave. Manchester, Kentucky 39495
-            </p>
+            <p className="mb-20">Kasztanowa Street 17/1, Manowo, Poland</p>
             <ul className="footer-contact">
               <li>
                 <i className="fa-regular fa-clock"></i>
                 <div className="info">
                   <h5>Opening Hours:</h5>
-                  <p>Mon - Sat: 10.00 AM - 4.00 PM</p>
+                  <p>Mon - Fri: 9.00 AM - 5.00 PM</p>
                 </div>
               </li>
               <li>
                 <i className="fa-duotone fa-phone"></i>
                 <div className="info">
                   <h5>Phone Call:</h5>
-                  <p>208-6666-0112, 308-5555-0113</p>
+                  <p>+48 504 412 991</p>
                 </div>
               </li>
             </ul>
@@ -187,21 +184,9 @@ const Footer = () => {
         <div className="container">
           <div className="d-flex gap-1 flex-wrap align-items-center justify-content-md-between justify-content-center">
             <p data-aos="fade-down" data-aos-delay="0" data-aos-duration="1500">
-              &copy; All Copyright 2024 by <Link href="/">Gratech</Link>
+              &copy; All Copyright 2024 by{" "}
+              <Link href="/">Charlie Unicorn AI</Link>
             </p>
-            <ul
-              className="d-flex align-items-center gap-4 "
-              data-aos="fade-down"
-              data-aos-delay="200"
-              data-aos-duration="1500"
-            >
-              <li>
-                <Link href="/">Terms & Condition</Link>
-              </li>
-              <li>
-                <Link href="/">Privacy Policy</Link>
-              </li>
-            </ul>
           </div>
         </div>
       </div>

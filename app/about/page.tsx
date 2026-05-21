@@ -20,7 +20,7 @@ const page = () => {
       <Brand />
       <Case />
       <Testimonial />
-      <Team />
+      {/* <Team /> */}
       <Footer />
       <CustomCursor />
       <ScrollProgressButton />

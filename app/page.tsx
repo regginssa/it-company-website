@@ -27,7 +27,7 @@ const page = () => {
       <Faq />
       <Case />
       <Testimonial />
-      <Blog />
+      {/* <Blog /> */}
       <Quote />
       <Footer />
       <CustomCursor />

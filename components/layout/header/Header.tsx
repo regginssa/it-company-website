@@ -83,21 +83,10 @@ const Header = () => {
                   </li>
                   <li>
                     <Link href="/service">Services</Link>
-                    <ul className="sub-menu">
-                      <li>
-                        <Link href="service-solutions">IT Solutions</Link>
-                      </li>
-                      <li>
-                        <Link href="service">IT Services</Link>
-                      </li>
-                      <li>
-                        <Link href="service-details">Service Details</Link>
-                      </li>
-                    </ul>
                   </li>
                   <li>
-                    <Link href="/case">Pages</Link>
-                    <ul className="sub-menu">
+                    <Link href="/case">Case Study</Link>
+                    {/* <ul className="sub-menu">
                       <li>
                         <Link href="case">Case Study</Link>
                       </li>
@@ -119,9 +108,12 @@ const Header = () => {
                       <li>
                         <Link href="error">404 Error</Link>
                       </li>
-                    </ul>
+                    </ul> */}
                   </li>
                   <li>
+                    <Link href="faq">FAQ&apos;s</Link>
+                  </li>
+                  {/* <li>
                     <Link href="/blog">Blog</Link>
                     <ul className="sub-menu">
                       <li>
@@ -134,7 +126,7 @@ const Header = () => {
                         <Link href="blog-details">Blog Details</Link>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
                   <li>
                     <Link href="/contact">Contact</Link>
                   </li>
