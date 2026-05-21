@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import svgLogo from "@/public/images/logo/logo.svg";
+import svgLogo from "@/public/images/logo/logo.png";
 const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: any) => {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 

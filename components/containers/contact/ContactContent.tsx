@@ -52,8 +52,9 @@ const ContactContent = () => {
             <div className="contact__left-item primary-bg">
               <h3 className="text-white mb-30">Contact Information</h3>
               <p className="text-white">
-                Nullam varius, erat quis iaculis dictum, eros urna varius eros,
-                ut blandit felis odio in turpis. Quisque.
+                Reach Charlie Unicorn AI to discuss web, mobile, blockchain, AI,
+                or Unreal Engine 5 projects—or book a consultancy. We respond
+                during business hours, Monday to Friday.
               </p>
               <ul className="mt-40 mb-40">
                 <li>
@@ -76,12 +77,15 @@ const ContactContent = () => {
                     </svg>
                   </i>
                   <div>
-                    <span className="text-white">Call Us 7/24</span>
+                    <span className="text-white">Phone</span>
                     <h3 className="mt-1">
-                      <Link className="text-white" href="tel:+2085550112">
-                        +208-555-0112
+                      <Link className="text-white" href="tel:+48504412991">
+                        +48 504 412 991
                       </Link>
                     </h3>
+                    <p className="text-white mt-1 mb-0 small">
+                      Mon – Fri: 9:00 AM – 5:00 PM
+                    </p>
                   </div>
                 </li>
                 <li>
@@ -108,7 +112,7 @@ const ContactContent = () => {
                     </svg>
                   </i>
                   <div>
-                    <span className="text-white">Make a Quote</span>
+                    <span className="text-white">Email</span>
                     <h3 className="mt-1">
                       <Link
                         className="text-white"
@@ -144,10 +148,10 @@ const ContactContent = () => {
                   </i>
                   <div>
                     <span className="text-white">Location</span>
-                    <h3 className="mt-1">
-                      <Link className="text-white" href="tel:+2085550112">
-                        4517 Washington ave.
-                      </Link>
+                    <h3 className="mt-1 text-white">
+                      Kasztanowa Street 17/1,
+                      <br />
+                      Manowo, Poland
                     </h3>
                   </div>
                 </li>
@@ -192,9 +196,10 @@ const ContactContent = () => {
                   data-aos-delay="400"
                   data-aos-duration="1500"
                 >
-                  Nullam varius, erat quis iaculis dictum, eros urna varius
-                  eros, ut blandit felis odio in turpis. Quisque rhoncus, eros
-                  in auctor ultrices,
+                  Share your idea, timeline, and requirements—we will reply by
+                  email or phone to schedule a consultancy and outline next
+                  steps. No fixed pricing on this site; every project starts
+                  with a conversation.
                 </p>
               </div>
               <div className="contact__form">
