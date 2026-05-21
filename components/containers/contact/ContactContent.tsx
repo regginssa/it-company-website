@@ -1,8 +1,49 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import One from "@/public/images/icon/section-title.png";
 
 const ContactContent = () => {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle"
+  );
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    const formData = new FormData(e.target as HTMLFormElement);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setStatus("error");
+        setErrorMessage(data.error ?? "Failed to send message.");
+        return;
+      }
+
+      setStatus("success");
+      (e.target as HTMLFormElement).reset();
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please try again.");
+    }
+  };
+
   return (
     <section className="contact-area pt-120 pb-120">
       <div className="container">
@@ -69,8 +110,11 @@ const ContactContent = () => {
                   <div>
                     <span className="text-white">Make a Quote</span>
                     <h3 className="mt-1">
-                      <Link className="text-white" href="/">
-                        info@gmail.com
+                      <Link
+                        className="text-white"
+                        href="mailto:team@charlieunicornai.eu"
+                      >
+                        team@charlieunicornai.eu
                       </Link>
                     </h3>
                   </div>
@@ -154,15 +198,18 @@ const ContactContent = () => {
                 </p>
               </div>
               <div className="contact__form">
-                <form action="#">
+                <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-6">
                       <label htmlFor="name">Your Name*</label>
                       <input
                         id="name"
+                        name="name"
                         className="bg-transparent bor"
                         type="text"
                         placeholder="Your Name"
+                        required
+                        disabled={status === "loading"}
                       />
                     </div>
                     <div className="col-6">
@@ -170,25 +217,44 @@ const ContactContent = () => {
                       <input
                         className="bg-transparent bor"
                         id="email"
+                        name="email"
                         type="email"
-                        placeholder="Your Email"
+                        placeholder="your@company.com"
+                        required
+                        disabled={status === "loading"}
                       />
                     </div>
                   </div>
                   <div className="text-area">
-                    <label htmlFor="massage">Write Message*</label>
+                    <label htmlFor="message">Write Message*</label>
                     <textarea
                       className="bg-transparent bor"
-                      id="massage"
-                      placeholder="Write Message"
+                      id="message"
+                      name="message"
+                      placeholder="Tell us about your project or book a consultancy..."
+                      required
+                      disabled={status === "loading"}
                     ></textarea>
                   </div>
+                  {status === "success" && (
+                    <p className="text-success mb-3">
+                      Thank you! Your message was sent. We will get back to you
+                      soon.
+                    </p>
+                  )}
+                  {status === "error" && (
+                    <p className="text-danger mb-3">{errorMessage}</p>
+                  )}
                   <div className="btn-two">
                     <span className="btn-circle"></span>
-                    <Link href="/" className="btn-one">
-                      Send Message{" "}
+                    <button
+                      type="submit"
+                      className="btn-one"
+                      disabled={status === "loading"}
+                    >
+                      {status === "loading" ? "Sending..." : "Send Message"}{" "}
                       <i className="fa-regular fa-arrow-right-long"></i>
-                    </Link>
+                    </button>
                   </div>
                 </form>
               </div>
