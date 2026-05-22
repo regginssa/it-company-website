@@ -9,7 +9,6 @@ import Three from "@/public/images/shape/about-circle-helper.png";
 import Four from "@/public/images/about/about-two-image1.png";
 import Five from "@/public/images/about/about-two-image2.webp";
 import Six from "@/public/images/shape/about-two-circle.png";
-import Seven from "@/public/images/about/singature.png";
 
 const About = () => {
   const { dict } = useI18n();
@@ -158,7 +157,6 @@ const About = () => {
               <LocalizedLink href="/about" className="btn-one">
                 {about.cta} <i className="fa-regular fa-arrow-right-long"></i>
               </LocalizedLink>
-              <Image src={Seven} alt="singature" priority />
             </div>
           </div>
         </div>

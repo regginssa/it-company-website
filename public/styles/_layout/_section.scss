@@ -15,9 +15,20 @@
 	}
 	h2 {
 		text-transform: capitalize;
+		@include breakpoint(max-md) {
+			font-size: 30px;
+			line-height: 40px;
+		}
+		@include breakpoint(max-sm) {
+			font-size: 26px;
+			line-height: 34px;
+		}
 	}
 	p {
 		margin-top: 30px;
+		@include breakpoint(max-md) {
+			margin-top: 20px;
+		}
 	}
 }
 // Section header area end here ***
@@ -392,14 +403,18 @@
 		position: relative;
 		@include flex;
 		gap: 40px;
+		flex-wrap: wrap;
 		@include breakpoint(max-sm) {
-			gap: 5px;
+			gap: 16px;
 		}
 	}
 	&-two {
 		&-area {
 			@extend .about-area;
 			padding-bottom: 120px;
+			@include breakpoint(max-lg) {
+				padding-bottom: 80px;
+			}
 			@include breakpoint(max-md) {
 				padding-bottom: 60px;
 			}
@@ -727,9 +742,21 @@
 			bottom: 30px;
 			left: 30px;
 			z-index: 1;
-			span {
-				color: var(--primary-color);
-				font-weight: 500;
+			@include breakpoint(max-sm) {
+				bottom: 20px;
+				left: 20px;
+				right: 70px;
+			}
+			span,
+			.case-two__category {
+				display: inline-block;
+				background-color: var(--secondary-color);
+				color: var(--white);
+				padding: 4px 14px;
+				font-size: 13px;
+				font-weight: 600;
+				line-height: 1.4;
+				margin-bottom: 8px;
 				transition: var(--transition);
 			}
 		}
@@ -770,7 +797,9 @@
 					height: 100%;
 				}
 				.case-two__content {
-					span {
+					span,
+					.case-two__category {
+						background-color: var(--primary-color);
 						color: var(--white);
 					}
 				}
@@ -837,6 +866,9 @@
 		overflow: hidden;
 		position: relative;
 		z-index: 1;
+		@include breakpoint(max-lg) {
+			overflow: visible;
+		}
 	}
 	&__shape-left {
 		position: absolute;
@@ -881,12 +913,22 @@
 			}
 		}
 		@include breakpoint(max-lg) {
-			right: 42%;
-			top: 20%;
+			right: 24px;
+			top: 24px;
 		}
-		@include breakpoint(max-xxsmall) {
-			right: 34%;
-			top: 15%;
+		@include breakpoint(max-md) {
+			display: none;
+		}
+	}
+	&__shape-left {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 0;
+		pointer-events: none;
+		@include breakpoint(max-md) {
+			max-width: 45%;
+			opacity: 0.35;
 		}
 	}
 }
@@ -1167,13 +1209,55 @@
 			box-shadow: var(--shadow);
 			padding: 40px;
 			position: relative;
+			@include breakpoint(max-md) {
+				padding: 28px 24px;
+			}
+			@include breakpoint(max-sm) {
+				padding: 24px 20px;
+			}
 			.coma {
 				position: absolute;
 				bottom: 40px;
 				right: 40px;
+				@include breakpoint(max-sm) {
+					bottom: 20px;
+					right: 20px;
+					width: 36px;
+					height: auto;
+				}
 			}
 			&.dark-mode {
 				background-color: var(--sub-bg);
+			}
+		}
+		&__author {
+			flex-wrap: wrap;
+			img {
+				flex-shrink: 0;
+			}
+			.con {
+				min-width: 0;
+				flex: 1 1 160px;
+				h4 {
+					@include breakpoint(max-md) {
+						font-size: 18px;
+						line-height: 26px;
+					}
+					@include breakpoint(max-sm) {
+						font-size: 16px;
+						line-height: 24px;
+					}
+				}
+			}
+		}
+		&__role {
+			display: block;
+			font-size: 14px;
+			line-height: 22px;
+			word-break: break-word;
+			@include breakpoint(max-sm) {
+				font-size: 13px;
+				line-height: 20px;
 			}
 		}
 	}

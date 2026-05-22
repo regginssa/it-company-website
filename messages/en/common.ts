@@ -5,7 +5,7 @@ export const common = {
   search: "Search...",
   getAQuote: "Get A Quote",
   callUsNow: "Call Us Now",
-  phone: "+48 504 412 991",
+  phone: "+48 504 412 991, +44 7862 253739",
   email: "team@charlieunicornai.eu",
   followSocial: "Follow Social:",
   builtBy: "Charlie Unicorn AI",

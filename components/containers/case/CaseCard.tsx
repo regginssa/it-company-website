@@ -17,7 +17,7 @@ const CaseCard = ({ project }: CaseCardProps) => {
         <Image src={project.image} alt={project.title} priority />
       </div>
       <div className="case-two__content">
-        <span>{project.category}</span>
+        <span className="case-two__category">{project.category}</span>
         <h4>
           <LocalizedLink href={detailHref} className="text-white">
             {project.title}

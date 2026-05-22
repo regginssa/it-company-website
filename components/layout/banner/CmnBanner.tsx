@@ -16,7 +16,7 @@ const CmnBanner = ({ title }: CmnBannerProps) => {
 
   return (
     <section
-      className="banner__inner-page bg-image pt-180 pb-180 bg-image"
+      className="banner__inner-page bg-image"
       aria-labelledby="page-title"
       style={{
         backgroundImage: "url(/images/banner/banner-inner-page.jpg)",

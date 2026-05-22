@@ -1,4 +1,19 @@
 :root {
+  // Fixed header (header-two-area) — used for inner page banner offset
+  --header-height: 105px;
+
+  @media (max-width: 991px) {
+    --header-height: 100px;
+  }
+
+  @media (max-width: 767px) {
+    --header-height: 96px;
+  }
+
+  @media (max-width: 575px) {
+    --header-height: 92px;
+  }
+
   // Font family ***
   --kumbh: "Kumbh Sans", sans-serif;
 

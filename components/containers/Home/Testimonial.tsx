@@ -113,11 +113,11 @@ const Testimonial = () => {
                   <div className="testimonial-two__item">
                     <StarRating />
                     <p className="mb-30">&ldquo; {item.quote} &rdquo;</p>
-                    <div className="d-flex align-items-center gap-3">
+                    <div className="testimonial-two__author d-flex align-items-center gap-3">
                       <Image src={item.image} alt={item.name} priority />
                       <div className="con">
                         <h4>{item.name}</h4>
-                        <span>{item.role}</span>
+                        <span className="testimonial-two__role">{item.role}</span>
                       </div>
                     </div>
                     <QuoteIcon />
