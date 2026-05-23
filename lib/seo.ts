@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 
 export const siteConfig = {
   name: "Charlie Unicorn AI",
-  legalName: "Charlie Unicorn AI",
+  legalName:
+    "CHARLIE UNICORN AI SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://charlieunicornai.eu",

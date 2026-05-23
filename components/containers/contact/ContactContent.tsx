@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import One from "@/public/images/icon/section-title.png";
 import LocalizedLink from "@/components/layout/LocalizedLink";
+import CompanyLegalInfo from "@/components/layout/CompanyLegalInfo";
 import { useI18n } from "@/contexts/I18nProvider";
 
 const ContactContent = () => {
@@ -153,7 +154,8 @@ const ContactContent = () => {
                   </div>
                 </li>
               </ul>
-              <h4 className="text-white mb-20">{dict.common.followSocial}</h4>
+              <CompanyLegalInfo variant="contact" />
+              <h4 className="text-white mb-20 mt-40">{dict.common.followSocial}</h4>
               <div className="social">
                 <LocalizedLink
                   href="https://www.facebook.com/share/1XnvD4ETX8/?mibextid=wwXIfr"

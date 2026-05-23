@@ -8,6 +8,7 @@ import Four from "@/public/images/shape/footer-solid-right.png";
 import Five from "@/public/images/shape/footer-shadow-shape.png";
 import Logo from "@/public/images/logo/logo.png";
 import LocalizedLink from "@/components/layout/LocalizedLink";
+import CompanyLegalInfo from "@/components/layout/CompanyLegalInfo";
 import { useI18n } from "@/contexts/I18nProvider";
 
 const Footer = () => {
@@ -160,10 +161,16 @@ const Footer = () => {
       </div>
       <div className="footer__copyright">
         <div className="container">
-          <div className="d-flex gap-1 flex-wrap align-items-center justify-content-md-between justify-content-center">
-            <p data-aos="fade-down" data-aos-delay="0" data-aos-duration="1500">
+          <div className="footer__copyright-inner d-flex flex-column flex-lg-row gap-3 align-items-center justify-content-lg-between justify-content-center text-center text-lg-start">
+            <p
+              data-aos="fade-down"
+              data-aos-delay="0"
+              data-aos-duration="1500"
+              className="mb-0"
+            >
               &copy; {new Date().getFullYear()} {common.footer.copyright}
             </p>
+            <CompanyLegalInfo variant="footer" />
           </div>
         </div>
       </div>

@@ -39,7 +39,7 @@ const ServiceSingle = ({ service }: ServiceSingleProps) => {
                     ))}
                   </ul>
                 </div>
-                <div className="col-lg-7">
+                {/* <div className="col-lg-7">
                   <div className="image">
                     <Image
                       src={service.detailSecondaryImage}
@@ -47,11 +47,14 @@ const ServiceSingle = ({ service }: ServiceSingleProps) => {
                       priority
                     />
                   </div>
-                </div>
+                </div> */}
               </div>
               <h3 className="title mb-30">{labels.commonQuestions}</h3>
               <p className="mb-30">
-                {labels.learnMore.replace("{service}", service.title.toLowerCase())}{" "}
+                {labels.learnMore.replace(
+                  "{service}",
+                  service.title.toLowerCase()
+                )}{" "}
                 <LocalizedLink href="/contact">
                   {dict.common.contactUsLink}
                 </LocalizedLink>{" "}

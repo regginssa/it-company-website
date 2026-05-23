@@ -69,6 +69,12 @@ export const common = {
     phoneLabel: "Phone:",
     copyright: "Charlie Unicorn AI. All rights reserved.",
   },
+  company: {
+    detailsTitle: "Company details",
+    krs: "KRS",
+    nip: "NIP",
+    regon: "REGON",
+  },
   pages: {
     aboutUs: "About Us",
     contactUs: "Contact Us",
