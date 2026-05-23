@@ -68,10 +68,13 @@ const Footer = () => {
             </LocalizedLink>
             <p>{common.footer.about}</p>
             <div className="social-icon">
-              <LocalizedLink href="/">
+              <LocalizedLink
+                href="https://www.facebook.com/share/1XnvD4ETX8/?mibextid=wwXIfr"
+                target="_blank"
+              >
                 <i className="fa-brands fa-facebook-f"></i>
               </LocalizedLink>
-              <LocalizedLink href="/">
+              {/* <LocalizedLink href="/">
                 <i className="fa-brands fa-twitter"></i>
               </LocalizedLink>
               <LocalizedLink href="/">
@@ -79,7 +82,7 @@ const Footer = () => {
               </LocalizedLink>
               <LocalizedLink href="/">
                 <i className="fa-brands fa-youtube"></i>
-              </LocalizedLink>
+              </LocalizedLink> */}
             </div>
           </div>
           <div

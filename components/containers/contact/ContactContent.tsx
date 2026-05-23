@@ -9,9 +9,9 @@ import { useI18n } from "@/contexts/I18nProvider";
 const ContactContent = () => {
   const { dict } = useI18n();
   const c = dict.contact;
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -155,15 +155,18 @@ const ContactContent = () => {
               </ul>
               <h4 className="text-white mb-20">{dict.common.followSocial}</h4>
               <div className="social">
-                <LocalizedLink href="/">
+                <LocalizedLink
+                  href="https://www.facebook.com/share/1XnvD4ETX8/?mibextid=wwXIfr"
+                  target="_blank"
+                >
                   <i className="fa-brands fa-facebook-f"></i>
                 </LocalizedLink>
-                <LocalizedLink href="/">
+                {/* <LocalizedLink href="/">
                   <i className="fa-brands fa-twitter"></i>
                 </LocalizedLink>
                 <LocalizedLink href="/">
                   <i className="fa-brands fa-linkedin-in"></i>
-                </LocalizedLink>
+                </LocalizedLink> */}
               </div>
             </div>
           </div>
@@ -236,9 +239,7 @@ const ContactContent = () => {
                     ></textarea>
                   </div>
                   {status === "success" && (
-                    <p className="text-success mb-3">
-                      {c.success}
-                    </p>
+                    <p className="text-success mb-3">{c.success}</p>
                   )}
                   {status === "error" && (
                     <p className="text-danger mb-3">{errorMessage}</p>

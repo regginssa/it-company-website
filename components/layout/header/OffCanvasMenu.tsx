@@ -10,7 +10,10 @@ type OffCanvasMenuProps = {
   handleToggleMenu: (open: boolean) => void;
 };
 
-const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: OffCanvasMenuProps) => {
+const OffCanvasMenu = ({
+  toggleMenu,
+  handleToggleMenu,
+}: OffCanvasMenuProps) => {
   const { dict } = useI18n();
   const { common } = dict;
 
@@ -42,7 +45,9 @@ const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: OffCanvasMenuProps) => 
               <LocalizedLink href="/about">{common.nav.about}</LocalizedLink>
             </li>
             <li>
-              <LocalizedLink href="/service">{common.nav.services}</LocalizedLink>
+              <LocalizedLink href="/service">
+                {common.nav.services}
+              </LocalizedLink>
             </li>
             <li>
               <LocalizedLink href="/case">{common.nav.caseStudy}</LocalizedLink>
@@ -51,7 +56,9 @@ const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: OffCanvasMenuProps) => 
               <LocalizedLink href="/faq">{common.nav.faq}</LocalizedLink>
             </li>
             <li>
-              <LocalizedLink href="/contact">{common.nav.contact}</LocalizedLink>
+              <LocalizedLink href="/contact">
+                {common.nav.contact}
+              </LocalizedLink>
             </li>
           </ul>
         </nav>
@@ -67,10 +74,13 @@ const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: OffCanvasMenuProps) => 
         </li>
       </ul>
       <div className="social-icon mt-20">
-        <LocalizedLink href="/">
+        <LocalizedLink
+          href="https://www.facebook.com/share/1XnvD4ETX8/?mibextid=wwXIfr"
+          target="_blank"
+        >
           <i className="fa-brands fa-facebook-f"></i>
         </LocalizedLink>
-        <LocalizedLink href="/">
+        {/* <LocalizedLink href="/">
           <i className="fa-brands fa-twitter"></i>
         </LocalizedLink>
         <LocalizedLink href="/">
@@ -78,7 +88,7 @@ const OffCanvasMenu = ({ toggleMenu, handleToggleMenu }: OffCanvasMenuProps) => 
         </LocalizedLink>
         <LocalizedLink href="/">
           <i className="fa-brands fa-youtube"></i>
-        </LocalizedLink>
+        </LocalizedLink> */}
       </div>
       <button
         id="closeButton"
